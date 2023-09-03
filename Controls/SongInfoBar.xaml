@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.SongInfoBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="063" d:DesignWidth="300">
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="340"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RadiusX="30" RadiusY="30" Grid.Row ="0" Grid.RowSpan="2" Fill="#000">
+            <Rectangle.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5" Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#56B1C6" Offset="1"/>
+                    <GradientStop/>
+                </LinearGradientBrush>
+            </Rectangle.OpacityMask>
+        </Rectangle>
+        <Rectangle x:Name="MenuSpacerMove" Width="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+        <Rectangle x:Name="MenuSpacerStretch" Width="200" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+        <Rectangle x:Name="MenuSpacerMini" Width="50" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="60,0,0,5">
+            <Label x:Name="lblMainBar" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFEDF9E1" FontSize="16"  FontWeight="Bold" FontFamily="{StaticResource Bold}">
+
+            </Label>
+            <Label x:Name="lblSubBar" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFEDF9E1" FontSize="12" Background="{x:Null}" FontFamily="Quicksand" Margin="0,-10,0,0"/>
+            <Label x:Name="lblMiniBar" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#fff" FontSize="12" FontFamily="{StaticResource Bold}" Background="{x:Null}" Margin="0,-10,0,0">
+            </Label>
+        </StackPanel>
+        <ToggleButton Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{DynamicResource SomeToggleButtonStyle}" x:Name="btnInfo" HorizontalAlignment="Left" Margin="5,0,0,0">
+            <Image Source="/JukeBoxSolutions;component/Images/Theme1/InfoIconA.png" Height="50" Width="50"></Image>
+        </ToggleButton>
+    </Grid>
+</UserControl>

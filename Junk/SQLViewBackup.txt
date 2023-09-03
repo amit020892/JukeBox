@@ -1,0 +1,49 @@
+﻿CREATE VIEW [dbo].[LibraryView]
+	AS SELECT t.Id as [TrackId], t.Type, s.SongId, s.SongName, (CASE WHEN [Artists] IS NULL THEN UPPER(LEFT(s.SongName,1)) ELSE UPPER(LEFT([Artists],1)) END) As SongIndex ,s.Genre, a.AlbumId, Concat(Floor(a.Year / 10) * 10,'''s') as Year, art.Artists
+	FROM TrackLibrary as t left join Map_Files_Songs as map1 on t.Id = map1.FileId left join SongLibrary as s on map1.SongId = s.SongId
+	
+	left join 
+	(select map2.SongId, AlbumLibrary.* from Map_Album_Songs as map2 inner join AlbumLibrary on map2.AlbumId = AlbumLibrary.AlbumId where AlbumLibrary.isHidden = 'FALSE') as a
+	on s.SongId = a.SongId
+	
+	left join
+	(SELECT SS.SongId,
+STUFF((Select ', ' + a.ArtistName
+From Map_Artist_Songs map inner join  Artists a
+on map.ArtistId = a.Id
+where map.SongId = ss.SongId
+for xml path('')),1,2,'') [Artists]
+from SongLibrary as SS
+Group by ss.SongId) as art
+on s.SongId = art.SongId
+
+	where t.Type in ('Video','Music','Karaoke')
+
+
+
+
+
+Create Procedure BuildLibraryView
+As Begin 
+Truncate table [dbo].[LibraryView];
+SELECT t.Id as [TrackId], t.Type, s.SongId, s.SongName, (CASE WHEN [Artists] IS NULL THEN UPPER(LEFT(s.SongName,1)) ELSE UPPER(LEFT([Artists],1)) END) As SongIndex ,s.Genre, a.AlbumId, Concat(Floor(a.Year / 10) * 10,'''s') as Year, art.Artists
+	into [dbo].[LibraryView]
+	FROM TrackLibrary as t left join Map_Files_Songs as map1 on t.Id = map1.FileId left join SongLibrary as s on map1.SongId = s.SongId
+	
+	left join 
+	(select map2.SongId, AlbumLibrary.* from Map_Album_Songs as map2 inner join AlbumLibrary on map2.AlbumId = AlbumLibrary.AlbumId where AlbumLibrary.isHidden = 'FALSE') as a
+	on s.SongId = a.SongId
+	
+	left join
+	(SELECT SS.SongId,
+STUFF((Select ', ' + a.ArtistName
+From Map_Artist_Songs map inner join  Artists a
+on map.ArtistId = a.Id
+where map.SongId = ss.SongId
+for xml path('')),1,2,'') [Artists]
+from SongLibrary as SS
+Group by ss.SongId) as art
+on s.SongId = art.SongId
+
+	where t.Type in ('Video','Music','Karaoke');
+	End;

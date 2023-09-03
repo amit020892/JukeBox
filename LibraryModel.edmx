@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JukeboxBrainsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlbumLibrary">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlbumName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CoverArt" Type="image" />
+          <Property Name="MusicBrainzId" Type="varchar" MaxLength="25" />
+          <Property Name="Year" Type="int" />
+          <Property Name="NumTracks" Type="int" />
+          <Property Name="isVerified" Type="bit" Nullable="false" />
+          <Property Name="hasMusicBrainzUpdate" Type="bit" Nullable="false" />
+          <Property Name="iTunesId" Type="varchar" MaxLength="25" />
+          <Property Name="hasiTunesUpdate" Type="bit" Nullable="false" />
+          <Property Name="isHidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Subtype" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="iTunesId" Type="varchar" MaxLength="25" />
+          <Property Name="isVerified" Type="bit" Nullable="false" />
+          <Property Name="hasiTunesUpdate" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JOHAN\SOURCE\REPOS\FOOZBALL3000\JUKEBOXSOLUTIONS\APP_DATA\JUKEBOXBRAINSDB.MDF.dbo.LibraryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LibraryView">
+          <Key>
+            <PropertyRef Name="TrackId" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="TrackId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SongId" Type="int" />
+          <Property Name="SongName" Type="varchar" MaxLength="150" />
+          <Property Name="SongIndex" Type="nvarchar(max)" />
+          <Property Name="Genre" Type="varchar" MaxLength="25" />
+          <Property Name="AlbumId" Type="int" />
+          <Property Name="Year" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Artists" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Map_Album_Songs">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="SongId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Map_Artist_Songs">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+          <Property Name="SongId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Map_Files_Songs">
+          <Key>
+            <PropertyRef Name="FileId" />
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="FileId" Type="int" Nullable="false" />
+          <Property Name="SongId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayListDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="isVideo" Type="bit" Nullable="false" />
+          <Property Name="isMusic" Type="bit" Nullable="false" />
+          <Property Name="isKaraoke" Type="bit" Nullable="false" />
+          <Property Name="isRadio" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Playlists">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackId" Type="int" Nullable="false" />
+          <Property Name="PlaylistId" Type="int" Nullable="false" />
+          <Property Name="SequenceNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SongLibrary">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SongName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Genre" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="TrackLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Extention" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <Association Name="FK_Map_Album_S">
+          <End Role="AlbumLibrary" Type="Self.AlbumLibrary" Multiplicity="1" />
+          <End Role="Map_Album_Songs" Type="Self.Map_Album_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumLibrary">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Map_Album_Songs">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Map_Artist_S">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="Map_Artist_Songs" Type="Self.Map_Artist_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Artist_Songs">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Map_Files">
+          <End Role="TrackLibrary" Type="Self.TrackLibrary" Multiplicity="1" />
+          <End Role="Map_Files_Songs" Type="Self.Map_Files_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackLibrary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Files_Songs">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Map_Songs">
+          <End Role="SongLibrary" Type="Self.SongLibrary" Multiplicity="1" />
+          <End Role="Map_Files_Songs" Type="Self.Map_Files_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SongLibrary">
+              <PropertyRef Name="SongId" />
+            </Principal>
+            <Dependent Role="Map_Files_Songs">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Map_Songs_A">
+          <End Role="SongLibrary" Type="Self.SongLibrary" Multiplicity="1" />
+          <End Role="Map_Album_Songs" Type="Self.Map_Album_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SongLibrary">
+              <PropertyRef Name="SongId" />
+            </Principal>
+            <Dependent Role="Map_Album_Songs">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Map_Songs_Art">
+          <End Role="SongLibrary" Type="Self.SongLibrary" Multiplicity="1" />
+          <End Role="Map_Artist_Songs" Type="Self.Map_Artist_Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SongLibrary">
+              <PropertyRef Name="SongId" />
+            </Principal>
+            <Dependent Role="Map_Artist_Songs">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlists_PlaylistDetails">
+          <End Role="PlayListDetails" Type="Self.PlayListDetails" Multiplicity="1" />
+          <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayListDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlists">
+              <PropertyRef Name="PlaylistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlists_TrackFiles">
+          <End Role="TrackLibrary" Type="Self.TrackLibrary" Multiplicity="1" />
+          <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackLibrary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlists">
+              <PropertyRef Name="TrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JukeboxBrainsDBModelStoreContainer">
+          <EntitySet Name="AlbumLibrary" EntityType="Self.AlbumLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Map_Album_Songs" EntityType="Self.Map_Album_Songs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Map_Artist_Songs" EntityType="Self.Map_Artist_Songs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Map_Files_Songs" EntityType="Self.Map_Files_Songs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayListDetails" EntityType="Self.PlayListDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Playlists" EntityType="Self.Playlists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SongLibrary" EntityType="Self.SongLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackLibrary" EntityType="Self.TrackLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LibraryView" EntityType="Self.LibraryView" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LibraryView].[TrackId] AS [TrackId], 
+    [LibraryView].[Type] AS [Type], 
+    [LibraryView].[SongId] AS [SongId], 
+    [LibraryView].[SongName] AS [SongName], 
+    [LibraryView].[SongIndex] AS [SongIndex], 
+    [LibraryView].[Genre] AS [Genre], 
+    [LibraryView].[AlbumId] AS [AlbumId], 
+    [LibraryView].[Year] AS [Year], 
+    [LibraryView].[Artists] AS [Artists]
+    FROM [dbo].[LibraryView] AS [LibraryView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Map_Album_S" Association="Self.FK_Map_Album_S">
+            <End Role="AlbumLibrary" EntitySet="AlbumLibrary" />
+            <End Role="Map_Album_Songs" EntitySet="Map_Album_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Map_Artist_S" Association="Self.FK_Map_Artist_S">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Map_Artist_Songs" EntitySet="Map_Artist_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Map_Files" Association="Self.FK_Map_Files">
+            <End Role="TrackLibrary" EntitySet="TrackLibrary" />
+            <End Role="Map_Files_Songs" EntitySet="Map_Files_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Map_Songs" Association="Self.FK_Map_Songs">
+            <End Role="SongLibrary" EntitySet="SongLibrary" />
+            <End Role="Map_Files_Songs" EntitySet="Map_Files_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Map_Songs_A" Association="Self.FK_Map_Songs_A">
+            <End Role="SongLibrary" EntitySet="SongLibrary" />
+            <End Role="Map_Album_Songs" EntitySet="Map_Album_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Map_Songs_Art" Association="Self.FK_Map_Songs_Art">
+            <End Role="SongLibrary" EntitySet="SongLibrary" />
+            <End Role="Map_Artist_Songs" EntitySet="Map_Artist_Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlists_PlaylistDetails" Association="Self.FK_Playlists_PlaylistDetails">
+            <End Role="PlayListDetails" EntitySet="PlayListDetails" />
+            <End Role="Playlists" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlists_TrackFiles" Association="Self.FK_Playlists_TrackFiles">
+            <End Role="TrackLibrary" EntitySet="TrackLibrary" />
+            <End Role="Playlists" EntitySet="Playlists" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JukeboxBrainsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JukeboxBrainsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppSettings" EntityType="JukeboxBrainsDBModel.AppSetting" />
+          <EntitySet Name="AlbumLibraries" EntityType="JukeboxBrainsDBModel.AlbumLibrary" />
+          <EntitySet Name="TrackLibraries" EntityType="JukeboxBrainsDBModel.TrackLibrary" />
+          <EntitySet Name="PlayListDetails" EntityType="JukeboxBrainsDBModel.PlayListDetail" />
+          <EntitySet Name="Playlists" EntityType="JukeboxBrainsDBModel.Playlist" />
+          <AssociationSet Name="FK_Playlists_PlaylistDetails" Association="JukeboxBrainsDBModel.FK_Playlists_PlaylistDetails">
+            <End Role="PlayListDetail" EntitySet="PlayListDetails" />
+            <End Role="Playlist" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlists_TrackFiles" Association="JukeboxBrainsDBModel.FK_Playlists_TrackFiles">
+            <End Role="TrackLibrary" EntitySet="TrackLibraries" />
+            <End Role="Playlist" EntitySet="Playlists" />
+          </AssociationSet>
+          <FunctionImport Name="BuildLibraryView" />
+          <EntitySet Name="LibraryViews" EntityType="JukeboxBrainsDBModel.LibraryView" />
+          <EntitySet Name="Artists" EntityType="JukeboxBrainsDBModel.Artist" />
+          <EntitySet Name="SongLibraries" EntityType="JukeboxBrainsDBModel.SongLibrary" />
+          <AssociationSet Name="Map_Album_Songs" Association="JukeboxBrainsDBModel.Map_Album_Songs">
+            <End Role="AlbumLibrary" EntitySet="AlbumLibraries" />
+            <End Role="SongLibrary" EntitySet="SongLibraries" />
+          </AssociationSet>
+          <AssociationSet Name="Map_Artist_Songs" Association="JukeboxBrainsDBModel.Map_Artist_Songs">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="SongLibrary" EntitySet="SongLibraries" />
+          </AssociationSet>
+          <AssociationSet Name="Map_Files_Songs" Association="JukeboxBrainsDBModel.Map_Files_Songs">
+            <End Role="TrackLibrary" EntitySet="TrackLibraries" />
+            <End Role="SongLibrary" EntitySet="SongLibraries" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Subtype" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AlbumLibrary">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="AlbumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CoverArt" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MusicBrainzId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="NumTracks" Type="Int32" />
+          <Property Name="isVerified" Type="Boolean" Nullable="false" />
+          <Property Name="hasMusicBrainzUpdate" Type="Boolean" Nullable="false" />
+          <Property Name="iTunesId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="hasiTunesUpdate" Type="Boolean" Nullable="false" />
+          <Property Name="isHidden" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SongLibraries" Relationship="JukeboxBrainsDBModel.Map_Album_Songs" FromRole="AlbumLibrary" ToRole="SongLibrary" />
+        </EntityType>
+        <EntityType Name="TrackLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Extention" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Playlists" Relationship="JukeboxBrainsDBModel.FK_Playlists_TrackFiles" FromRole="TrackLibrary" ToRole="Playlist" />
+          <NavigationProperty Name="SongLibraries" Relationship="JukeboxBrainsDBModel.Map_Files_Songs" FromRole="TrackLibrary" ToRole="SongLibrary" />
+        </EntityType>
+        <EntityType Name="PlayListDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Playlists" Relationship="JukeboxBrainsDBModel.FK_Playlists_PlaylistDetails" FromRole="PlayListDetail" ToRole="Playlist" />
+          <Property Name="isVideo" Type="Boolean" Nullable="false" />
+          <Property Name="isMusic" Type="Boolean" Nullable="false" />
+          <Property Name="isKaraoke" Type="Boolean" Nullable="false" />
+          <Property Name="isRadio" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Playlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackId" Type="Int32" Nullable="false" />
+          <Property Name="PlaylistId" Type="Int32" Nullable="false" />
+          <Property Name="SequenceNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PlayListDetail" Relationship="JukeboxBrainsDBModel.FK_Playlists_PlaylistDetails" FromRole="Playlist" ToRole="PlayListDetail" />
+          <NavigationProperty Name="TrackLibrary" Relationship="JukeboxBrainsDBModel.FK_Playlists_TrackFiles" FromRole="Playlist" ToRole="TrackLibrary" />
+        </EntityType>
+        <Association Name="FK_Playlists_PlaylistDetails">
+          <End Type="JukeboxBrainsDBModel.PlayListDetail" Role="PlayListDetail" Multiplicity="1" />
+          <End Type="JukeboxBrainsDBModel.Playlist" Role="Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayListDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="PlaylistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlists_TrackFiles">
+          <End Type="JukeboxBrainsDBModel.TrackLibrary" Role="TrackLibrary" Multiplicity="1" />
+          <End Type="JukeboxBrainsDBModel.Playlist" Role="Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackLibrary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="TrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LibraryView">
+          <Key>
+            <PropertyRef Name="TrackId" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="TrackId" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SongId" Type="Int32" />
+          <Property Name="SongName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SongIndex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Genre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AlbumId" Type="Int32" />
+          <Property Name="Year" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Artists" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="iTunesId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="isVerified" Type="Boolean" Nullable="false" />
+          <Property Name="hasiTunesUpdate" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SongLibraries" Relationship="JukeboxBrainsDBModel.Map_Artist_Songs" FromRole="Artist" ToRole="SongLibrary" />
+        </EntityType>
+        <EntityType Name="SongLibrary">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SongName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Genre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AlbumLibraries" Relationship="JukeboxBrainsDBModel.Map_Album_Songs" FromRole="SongLibrary" ToRole="AlbumLibrary" />
+          <NavigationProperty Name="Artists" Relationship="JukeboxBrainsDBModel.Map_Artist_Songs" FromRole="SongLibrary" ToRole="Artist" />
+          <NavigationProperty Name="TrackLibraries" Relationship="JukeboxBrainsDBModel.Map_Files_Songs" FromRole="SongLibrary" ToRole="TrackLibrary" />
+        </EntityType>
+        <Association Name="Map_Album_Songs">
+          <End Type="JukeboxBrainsDBModel.AlbumLibrary" Role="AlbumLibrary" Multiplicity="*" />
+          <End Type="JukeboxBrainsDBModel.SongLibrary" Role="SongLibrary" Multiplicity="*" />
+        </Association>
+        <Association Name="Map_Artist_Songs">
+          <End Type="JukeboxBrainsDBModel.Artist" Role="Artist" Multiplicity="*" />
+          <End Type="JukeboxBrainsDBModel.SongLibrary" Role="SongLibrary" Multiplicity="*" />
+        </Association>
+        <Association Name="Map_Files_Songs">
+          <End Type="JukeboxBrainsDBModel.TrackLibrary" Role="TrackLibrary" Multiplicity="*" />
+          <End Type="JukeboxBrainsDBModel.SongLibrary" Role="SongLibrary" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JukeboxBrainsDBModelStoreContainer" CdmEntityContainer="JukeboxBrainsDBEntities">
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.AppSetting">
+              <MappingFragment StoreEntitySet="AppSettings">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Subtype" ColumnName="Subtype" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlbumLibraries">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.AlbumLibrary">
+              <MappingFragment StoreEntitySet="AlbumLibrary">
+                <ScalarProperty Name="isHidden" ColumnName="isHidden" />
+                <ScalarProperty Name="hasiTunesUpdate" ColumnName="hasiTunesUpdate" />
+                <ScalarProperty Name="iTunesId" ColumnName="iTunesId" />
+                <ScalarProperty Name="hasMusicBrainzUpdate" ColumnName="hasMusicBrainzUpdate" />
+                <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+                <ScalarProperty Name="NumTracks" ColumnName="NumTracks" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="MusicBrainzId" ColumnName="MusicBrainzId" />
+                <ScalarProperty Name="CoverArt" ColumnName="CoverArt" />
+                <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackLibraries">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.TrackLibrary">
+              <MappingFragment StoreEntitySet="TrackLibrary">
+                <ScalarProperty Name="Extention" ColumnName="Extention" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayListDetails">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.PlayListDetail">
+              <MappingFragment StoreEntitySet="PlayListDetails">
+                <ScalarProperty Name="isRadio" ColumnName="isRadio" />
+                <ScalarProperty Name="isKaraoke" ColumnName="isKaraoke" />
+                <ScalarProperty Name="isMusic" ColumnName="isMusic" />
+                <ScalarProperty Name="isVideo" ColumnName="isVideo" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Playlists">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.Playlist">
+              <MappingFragment StoreEntitySet="Playlists">
+                <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
+                <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LibraryViews">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.LibraryView">
+              <MappingFragment StoreEntitySet="LibraryView">
+                <ScalarProperty Name="Artists" ColumnName="Artists" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="SongIndex" ColumnName="SongIndex" />
+                <ScalarProperty Name="SongName" ColumnName="SongName" />
+                <ScalarProperty Name="SongId" ColumnName="SongId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.Artist">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="hasiTunesUpdate" ColumnName="hasiTunesUpdate" />
+                <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+                <ScalarProperty Name="iTunesId" ColumnName="iTunesId" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SongLibraries">
+            <EntityTypeMapping TypeName="JukeboxBrainsDBModel.SongLibrary">
+              <MappingFragment StoreEntitySet="SongLibrary">
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="SongName" ColumnName="SongName" />
+                <ScalarProperty Name="SongId" ColumnName="SongId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Map_Album_Songs" TypeName="JukeboxBrainsDBModel.Map_Album_Songs" StoreEntitySet="Map_Album_Songs">
+            <EndProperty Name="SongLibrary">
+              <ScalarProperty Name="SongId" ColumnName="SongId" />
+            </EndProperty>
+            <EndProperty Name="AlbumLibrary">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Map_Artist_Songs" TypeName="JukeboxBrainsDBModel.Map_Artist_Songs" StoreEntitySet="Map_Artist_Songs">
+            <EndProperty Name="SongLibrary">
+              <ScalarProperty Name="SongId" ColumnName="SongId" />
+            </EndProperty>
+            <EndProperty Name="Artist">
+              <ScalarProperty Name="Id" ColumnName="ArtistId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Map_Files_Songs" TypeName="JukeboxBrainsDBModel.Map_Files_Songs" StoreEntitySet="Map_Files_Songs">
+            <EndProperty Name="SongLibrary">
+              <ScalarProperty Name="SongId" ColumnName="SongId" />
+            </EndProperty>
+            <EndProperty Name="TrackLibrary">
+              <ScalarProperty Name="Id" ColumnName="FileId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

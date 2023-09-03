@@ -1,0 +1,317 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.LibraryCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:MinHeight="230" d:MinWidth="200" UseLayoutRounding="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="ImageRow" MinHeight="174"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="8,8,0,0" BorderThickness="1">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" x:Name="CoverImage"/>
+            </Border.Background>
+        </Border>
+
+        <Border Grid.Row="1" CornerRadius="0,0,8,8" Margin="1,-2,1,0" Background="#000">
+            <StackPanel VerticalAlignment="Center">
+                <Label x:Name="lblArtist" Content="Linkin Park" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="{StaticResource Bold}" FontWeight="DemiBold" Foreground="#fff"/>
+                <Label Margin="0,-5,0,0" x:Name="lblAlbum" Content="Linkin Park" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="DemiBold" FontFamily="{StaticResource Bold}" Foreground="#fff"/>
+            </StackPanel>
+        </Border>
+        <Border Background="#fff" Width="120" Height="30" HorizontalAlignment="Right" CornerRadius="15" x:Name="RemoveFavInfoButton" Visibility="Collapsed" VerticalAlignment="Top" Margin="10,5,5,5">
+            <Grid>
+                <Label Content="Removed" FontFamily="{StaticResource Bold}" Foreground="#000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,5,0"/>
+            </Grid>
+        </Border>
+        <Image x:Name="UnfavIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Unfavourite.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Height="24" Margin="10" MouseDown="MakeFavourite"/>
+
+        <Border Background="#fff" Width="120" Height="30" HorizontalAlignment="Right" CornerRadius="15" x:Name="AddFavInfoButton" Visibility="Collapsed" VerticalAlignment="Top" Margin="10,5,5,5">
+            <Grid>
+                <Label Content="Favourited" FontFamily="{StaticResource Bold}" Foreground="#000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,5,0"/>
+            </Grid>
+        </Border>
+        <Image x:Name="FavIcon"  Source="/JukeBoxSolutions;component/Images/Theme1/Favourite.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20" Margin="10" Visibility="Collapsed"/>
+
+        <Button x:Name="AddIconBG" Width="50" Height="50" Background="#000" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.7">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                    <Grid/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="AddIcon" Width="50" Height="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Click="AddToPlayList_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                    <Grid>
+                                        <Image x:Name="RemoveIcon" Source="/JukeBoxSolutions;component/Images/Theme1/AddB.png" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="RemoveIconBG" Width="50" Height="50" Background="#fff" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" Visibility="Collapsed">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                    <Grid/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="RemoveIcon" Width="50" Height="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Click="RemoveFromPlaylist_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                    <Grid>
+                                        <Image x:Name="RemoveIcon" Source="/JukeBoxSolutions;component/Images/Theme1/RemoveB.png" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="AddBtnStack" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <Grid Grid.Column="1" MouseDown="AddAlbumToPlaylist">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/AddToPlaylist.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Add Album" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Margin="0,10" MouseDown="AddTrackToPlaylist">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/AddToPlaylist.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Add Tracks" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1" MouseDown="CloseBtnStack">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Go Back" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="RemoveBtnStack" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <Grid Grid.Column="1" MouseDown="RemoveAlbumFromPlaylist">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" OpenBtn FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/removeBtn.png" Width="20" Margin="10,0,10,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Remove Album" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Margin="0,10" MouseDown="RemoveTrackFromPlaylist">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/AddToPlaylist.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Edit Playlist" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1" MouseDown="CloseRemoveBtnStack">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Go Back" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="AddFavBtnStack" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <Grid Grid.Column="1" MouseDown="AddAlbumToFavourite">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/Unfavourite.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Add Album" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Margin="0,10" MouseDown="AddTrackToFavourite">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/Unfavourite.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Add Tracks" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1" MouseDown="CloseAddFavBtnStack">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Go Back" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="RemoveFavBtnStack" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <Grid MouseDown="RemoveTrackFromFav">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/AddToPlaylist.png" Width="20" Margin="10,0,0,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Edit Tracks" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                <Grid Margin="0,10" Grid.Column="1" MouseDown="RemoveAlbumFromFav">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" OpenBtn FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="160">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/removeBtn.png" Width="20" Margin="10,0,10,0"/>
+                        <Label Grid.ColumnSpan="2" Content="Remove All" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+                
+                <Grid Grid.Column="1" MouseDown="CloseRemoveFavBtnStack">
+                    <Border Background="#000" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="160" Opacity="0.71">
+                        <Grid>
+                            <!--<Label Content="ADDED" FontFamily="{StaticResource Bold}" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
+                        </Grid>
+                    </Border>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Go Back" FontFamily="{StaticResource Bold}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#fff"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="120" x:Name="RemoveFavBtnConfirmationStack" Visibility="Collapsed">
+            <Border x:Name="RemoveFavBtnConfirmationStackBG" Height="110" CornerRadius="10" Background="#000" Opacity="0.71">
+                <Grid/>
+            </Border>
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" CornerRadius="10" Background="Transparent">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Content="ARE YOU SURE?" FontSize="14" FontFamily="{StaticResource Bold}" Foreground="#fff" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Background="#fff" BorderBrush="#225663" VerticalAlignment="Center" Height="40" Width="70" BorderThickness="1" CornerRadius="20">
+                            <Grid MouseDown="RemoveYes">
+                                <Label Grid.Column="0" FontSize="15" Content="Yes" FontFamily="{StaticResource Bold}" Foreground="#56B1C6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2" Background="#fff" BorderBrush="#225663" Width="70" VerticalAlignment="Center" Height="40" BorderThickness="1" CornerRadius="20">
+                            <Grid MouseDown="RemoveNo">
+                                <Label Content="No" FontSize="15" FontFamily="{StaticResource Bold}" Foreground="#56B1C6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        
+
+    </Grid>
+</UserControl>

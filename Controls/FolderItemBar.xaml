@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.FolderItemBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Height="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="FolderBar" Background="#000" Opacity="0.71" CornerRadius="1">
+            <Grid/>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="SelectedFolderIcon" Source="/JukeBoxSolutions;component/Images/Theme1/SelectedFolderIcon.png" Width="16" Height="16" Visibility="Collapsed"/>
+            <Image x:Name="UnselectedFolderIcon" Source="/JukeBoxSolutions;component/Images/Theme1/UnselectedFolderIcon.png" Width="16" Height="16"/>
+            <Label Grid.Column="1" x:Name="UnselectedfolderLabel" FontFamily="{StaticResource Bold}" FontSize="16" Foreground="#fff" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Column="1" x:Name="SelectedFolderLabel" FontFamily="{StaticResource Bold}" FontSize="16" Foreground="#225663" VerticalContentAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Column="1" Margin="10" x:Name="CheckUncheckedContainer">
+            <Image x:Name="CheckedIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Checked.png" Width="16" Height="16" MouseDown="Checked_Click" Visibility="Collapsed"/>
+            <Image x:Name="UncheckedIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Unchecked.png" Width="16" Height="16" MouseDown="Unchecked_Click"/>
+        </Grid>       
+    </Grid>
+</UserControl>

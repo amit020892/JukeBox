@@ -1,0 +1,204 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.FavItemBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="113" />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="35" />
+        </Grid.ColumnDefinitions>
+        <!--<ToggleButton x:Name="baseButton" Grid.ColumnSpan="3" Style="{DynamicResource TrackItemButtonStyleAlpha}"/>-->
+        <Button Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="56" FontFamily="{StaticResource Bold}" Background="Black" Foreground="White" Margin="10,0,10,0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" Opacity="0.81" CornerRadius="28"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="BtnAlbumCount" Style="{DynamicResource CircleButtonStyle}" Margin="25,0" Content="1" Height="32" Width="32" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="25,0,0,0">
+            <Label x:Name="lblArtistName" Content="Artist" HorizontalAlignment="Left" FontFamily="{StaticResource Bold}" Foreground="White" Margin="40,0,0,0" FontSize="18"/>
+            <Label x:Name="lblAlbumName" Content="Artist" HorizontalAlignment="Left" FontFamily="{StaticResource Bold}" Margin="40,0,0,0" FontSize="12" Foreground="#56B1C6"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Grid.ColumnSpan="2" x:Name="lblTime" Content="2:30" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="{StaticResource Bold}" Foreground="#fff" FontSize="12"/>
+            <Button x:Name="PlayButton" Click="btnPlayNow_Click" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" Margin="5,0" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Image Source="/JukeBoxSolutions;component/Images/Theme1/PlayAlbum.png"/>
+            </Button>
+            <Button x:Name="DotButton" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" Margin="5,0,25,0" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right" Click="BtnTrackMenu_Click">
+                <Image Source="/JukeBoxSolutions;component/Images/Theme1/trackMenu.png"/>
+            </Button>
+        </StackPanel>
+        <Grid Grid.ColumnSpan="3" HorizontalAlignment="Right" Width="210" x:Name="NormalModeActiveBtnContainer" Visibility="Collapsed">
+            <Button Height="56" FontFamily="{StaticResource Bold}" Background="#fff" Foreground="White" Margin="10,0,10,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="28"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Orientation="Horizontal" Margin="20,0" x:Name="NormalModeActiveBtnPanel" Visibility="Collapsed">
+                <Button x:Name="PlayButtonActive" Click="btnPlayNow_Click" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" IsEnabled="False" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Image Source="/JukeBoxSolutions;component/Images/Theme1/PlayButtonActive.png"/>
+                </Button>
+                <Grid x:Name="NormalGridButtonsPanel">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button HorizontalAlignment="Stretch" Width="100" x:Name="btnQueNow" Click="btnQueNow_Click" Height="30" FontFamily="{StaticResource Bold}" Background="Black" Foreground="White" Margin="5,0,25,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#000" BorderThickness="0.2,0.5,0.5,0.5" CornerRadius="15">
+                                                <Grid>
+                                                    <Label Margin="0,0,0,0" Content="Queue Next" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="#225663"/>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+                <Button x:Name="DotButtonActive" Click="BtnTrackMenuActive_Click" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" Margin="-20,0,30,0" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Image Source="/JukeBoxSolutions;component/Images/Theme1/DotButtonActive.png"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <!--<Grid Grid.ColumnSpan="3" HorizontalAlignment="Right" Width="340" x:Name="AdminActiveBtnContainer" Visibility="Collapsed">
+            <Button Height="56" FontFamily="{StaticResource Bold}" Background="#fff" Foreground="White" Margin="10,0,10,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="28"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Orientation="Horizontal" Margin="20,0" x:Name="AdminActiveBtnPanels">
+                <Button Click="btnPlayNow_Click" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" IsEnabled="False" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Image Source="/JukeBoxSolutions;component/Images/Theme1/PlayButtonActive.png"/>
+                </Button>
+                <Grid Margin="-25,0,0,0" x:Name="AdminGridButtonsPanel">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button HorizontalAlignment="Stretch" x:Name="btnAddToPlaylistx" Click="btnAddToPlaylistx_Click" Width="70" Height="30" FontFamily="{StaticResource Bold}" Background="Black" Margin="30,0,0,0" Visibility="Collapsed">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#000" BorderThickness="0.5,0.5,0.1,0.5" CornerRadius="15,0,0,15">
+                                                <Grid>
+                                                    <Label Margin="0,0,0,0" Content="Add" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="#225663"/>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch" x:Name="btnRemove" Click="btnRemove_Click" Width="70" Height="30" FontFamily="{StaticResource Bold}" Background="Black" Margin="30,0,0,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#000" BorderThickness="0.5,0.5,0.1,0.5" CornerRadius="15,0,0,15">
+                                                <Grid>
+                                                    <Label Margin="0,0,0,0" Content="Remove" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="#225663"/>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="2" HorizontalAlignment="Stretch" Click="btnQueNow_Click" Width="90" Height="30" FontFamily="{StaticResource Bold}" Background="Black" Foreground="White">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#000" BorderThickness="0.5,0.5,0.2,0.5" CornerRadius="0">
+                                                <Grid>
+                                                    <Label Margin="0,0,0,0" Content="Queue Next" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="#225663"/>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="3" HorizontalAlignment="Stretch" Width="70" x:Name="btnEdit" Click="btnEdit_Click" Height="30" FontFamily="{StaticResource Bold}" Background="Black" Foreground="White" Margin="0,0,30,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#000" BorderThickness="0.2,0.5,0.5,0.5" CornerRadius="0,15,15,0">
+                                                <Grid>
+                                                    <Label Margin="0,0,0,0" Content="EDIT" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="#225663"/>
+                                                </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+                <Button x:Name="AdminModeDotButtonActive" Click="AdminModeBtnTrackMenuActive_Click" Background="Transparent" Style="{DynamicResource CircleButtonStyle}" Margin="-25,0,30,0" Height="30" Width="30" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Image Source="/JukeBoxSolutions;component/Images/Theme1/DotButtonActive.png"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Button x:Name="btnRemoveFromPlaylist" Visibility="Collapsed" Margin="35,0,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" BorderBrush="{x:Null}" Background="{DynamicResource ControlGradientMainHighlight_Red}" Click="btnRemoveFromPlaylist_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Style1/icon_Plus_Mask.png"/>
+            </Button.OpacityMask>
+        </Button>-->
+    </Grid>
+</UserControl>

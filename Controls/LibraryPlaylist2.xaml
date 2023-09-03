@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.LibraryPlaylist2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:MinHeight="260" d:MinWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="bgRectangle" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" RadiusX="20" RadiusY="20">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFAAAAAA" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Grid.Row="1">
+            <!--<Label Padding="0" Content="Playlist" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Top" Width="180" FontWeight="Bold" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" Foreground="#33000000"/>-->
+            <Label x:Name="lblNameAlpha" Padding="0" Content="Label" HorizontalAlignment="Center" Margin="10,28,0,0" VerticalAlignment="Top" Width="180" FontWeight="Bold" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" FontSize="14"/>
+            <Label x:Name="lblNameBeta" Padding="0" Content="Label" HorizontalAlignment="Center" Margin="10,59,0,0" VerticalAlignment="Top" Width="180" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="17"/>
+            <Label x:Name="lblNameCharlie" Padding="0" Content="Label" HorizontalAlignment="Center" Margin="115,81,105,0" VerticalAlignment="Top" Width="180" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="17"/>
+        </Grid>
+        <!--<Button Click="Rectanngle_Expand_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Rectangle x:Name="bgRectangle" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" RadiusX="20" RadiusY="20" Fill="#00FF0000"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>-->
+        <!--<Button x:Name="btnPlay" Content=">" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="60" Width="60" MinHeight="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="btnPlay_Click"/>
+        <Button x:Name="btnEdit" Content="Edit" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="70" Width="70" FontSize="16"
+                MinHeight="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80,0,10,10" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}" Click="btnEdit_Click" />
+        <Button x:Name="btnAddNowPlaying" Content="+" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="60" Width="60" MinHeight="60" Height="60" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,0,60,10" Click="btnAddNowPlaying_Click"/>
+        <Button x:Name="btnRename" Content="Rename" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="110" Width="110" FontSize="16"
+                MinHeight="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" Click="btnRename_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="90" Width="90" FontSize="16"
+                MinHeight="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,10,10" Background="{DynamicResource ControlGradientMain_Red}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Red}" Click="btnDelete_Click"/>
+
+        <Label x:Name="lblMore" Content="..." HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,20,10" FontFamily="{StaticResource Bold}" FontSize="32" MouseDown="lblMore_MouseDown"/>-->
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,231 @@
+﻿<Page x:Class="JukeBoxSolutions.Pages.Settings_Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Style1="clr-namespace:JukeBoxSolutions.Controls.Style1"
+      xmlns:local="clr-namespace:JukeBoxSolutions.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Settings_Page1">
+    <!--<Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Style1:BGRectangleStyle1 HorizontalAlignment="Center" VerticalAlignment="Stretch" MinHeight="450" Width="825"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Toggle on screen keyboard" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <ToggleButton x:Name="btnOnScreenKeyboard" Content="Is Active" HorizontalAlignment="Right" Grid.Column="1"  Style="{DynamicResource ToggleButtonStyleAlpha}" Height="50" Width="120" MinWidth="30" FontSize="20" Click="btnOnScreenKeyboard_Click"/>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="On screen keyboard size" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <Button x:Name="btnOnScreenKeyboardSize" Content="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" HorizontalAlignment="Right" Grid.Column="1"  Style="{DynamicResource ButtonStyleAlpha}" Height="50" Width="120" MinWidth="30" FontSize="20" Click="btnOnScreenKeyboardSize_Click"/>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition  Width="80"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Volume Increment :" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <Button x:Name="btnVolumeUp" Content="+" Grid.Column="1"  Style="{DynamicResource ButtonStyleAlpha}" Height="50" Width="50" MinWidth="30" FontSize="20" Click="btnVolumeUp_Click"/>
+                    <Label x:Name="lblVolumeIncrement" Content="10%" Grid.Column="2"  FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+                    <Button x:Name="btnVolumeDown" Content="-" Grid.Column="3" Style="{DynamicResource ButtonStyleAlpha}" Height="50" Width="50" MinWidth="30" FontSize="20" Click="btnVolumeDown_Click"/>
+                </Grid>
+
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Toggle on text overlay" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <ToggleButton x:Name="btnTextButtonOverlay" Content="Turn On" HorizontalAlignment="Right" Grid.Column="1" Click="btnTextButtonOverlay_Click" Style="{DynamicResource ToggleButtonStyleAlpha}" Height="50" Width="120" MinWidth="30" FontSize="20"/>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Colour Theme" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <Button x:Name="btnChangeTheme" Content="Theme Name" HorizontalAlignment="Right" Grid.Column="1" Style="{DynamicResource ButtonStyleAlpha}" Height="50" Width="220" MinWidth="30" FontSize="20" Click="btnChangeTheme_Click"/>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Toggle show album numbers" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <ToggleButton x:Name="btnAlbumNumbers" Content="Turn On" HorizontalAlignment="Right" Grid.Column="1" Click="btnAlbumNumbers_Click" Style="{DynamicResource ToggleButtonStyleAlpha}" Height="50" Width="120" MinWidth="30" FontSize="20"/>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="10" Grid.RowSpan="10" RadiusX="5" RadiusY="5">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#3F000000"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Audio Visualizer Quality" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" FontSize="24"/>
+                    <Label Content="(Requires Restart)" HorizontalAlignment="Left" Grid.Column="0" FontFamily="{StaticResource Bold}" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,-5"/>
+                    <Button x:Name="btnAudioVisualizerQuality" Content="" HorizontalAlignment="Right" Grid.Column="1"  Style="{DynamicResource ButtonStyleAlpha}" Height="50" Width="120" MinWidth="30" FontSize="20" Click="btnAudioVisualizerQuality_Click"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>-->
+    <Grid Margin="0,30">
+        <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Options" Foreground="White" FontWeight="Bold" FontSize="50" FontFamily="{StaticResource Bold}" Opacity="0.7"/>
+        <Grid VerticalAlignment="Center" Margin="100,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="320"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#000" Opacity="0.7" Margin="0,0,15,0"/>
+            <Grid Grid.Column="1" Background="#000" Opacity="0.7" Margin="15,0,0,0"/>
+            <Grid Margin="17,0,32,0" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid Background="#fff" Opacity="0.3" Height="60"/>
+                <Grid Margin="15,0">
+                    <Label Content="Toggle on screen keyboard" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="btnToggleOnScreenKeyboardOn" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15" Click="btnToggleOnScreenKeyboardOn_click"/>
+                        <ToggleButton x:Name="btnToggleOnScreenKeyboardOff" Content="Off" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15" IsChecked="True" Click="btnToggleOnScreenKeyboardOff_click"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="1" Margin="15,0">
+                    <Label Content="On screen keyboard size" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="BtnKeyboardSize50" Click="BtnKeyboardSize50_Click" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="50" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15"/>
+                        <ToggleButton x:Name="BtnKeyboardSize75" Click="BtnKeyboardSize75_Click" Content="75" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15" IsChecked="True"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="2" Margin="15,0">
+                    <Label Content="Adjust Volume" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="btnVolumeDec" Click="btnVolumeDown_Click" IsChecked="True" Style="{DynamicResource NoToggleLeftCornerToggleButtonStyle}" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="40" Height="40" FontWeight="Bold" FontSize="18"/>
+                        <ToggleButton x:Name="BtnVolumn" IsChecked="false" Style="{DynamicResource ZeroCornerToggleButtonStyle}" Content="Files" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="70" Height="40" FontSize="15" Opacity="0.7"/>
+                        <ToggleButton x:Name="btnVolumeUp" Click="btnVolumeUp_Click" IsChecked="True" Content="+" Style="{DynamicResource NoToggleRightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="40" Height="40" FontWeight="Bold" FontSize="18"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="3" Margin="15,0">
+                    <Label Content="Toggle on text overlay" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="BtnTextOverlayOn" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" Click="btnTextButtonOverlayON_Click" FontSize="15"/>
+                        <ToggleButton x:Name="BtnTextOverLayOff" Content="Off" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" Click="btnTextButtonOverlayOFF_Click" FontSize="15" IsChecked="True"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" Margin="32,0,17,0" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid Background="#fff" Opacity="0.3" Height="60"/>
+                <Grid Margin="15,0">
+                    <Label Content="Colour theme" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <ToggleButton Style="{DynamicResource AllCornerToggleButtonStyle}" Content="Change Theme" HorizontalAlignment="Right" VerticalAlignment="Center" Width="140" Height="40" FontSize="15" IsChecked="True"/>
+                </Grid>
+                <Grid Grid.Row="1" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="1" Margin="15,0">
+                    <Label Content="Toggle album numbers" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="BtnToggleAlbumNumberOn" Click="BtnToggleAlbumNumberOn_Click" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15"/>
+                        <ToggleButton x:Name="BtnToggleAlbumNumberOff" Click="BtnToggleAlbumNumberOff_Click" Content="Off" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15" IsChecked="True"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="2" Margin="15,0">
+                    <Label Content="Audio visualizer quality" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="AudioVisualizerQualityOff" Click="AudioVisualizerQualityOff_Click" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="Off" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15" IsChecked="True"/>
+                        <ToggleButton x:Name="AudioVisualizerQualityLow" Click="AudioVisualizerQualityLow_Click" Content="Low" Style="{DynamicResource ZeroCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15"/>
+                        <ToggleButton x:Name="AudioVisualizerQualityMedium" Click="AudioVisualizerQualityMedium_Click" Style="{DynamicResource ZeroCornerToggleButtonStyle}" Content="Medium" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15"/>
+                        <ToggleButton x:Name="AudioVisualizerQualityHigh" Click="AudioVisualizerQualityHigh_Click" Content="High" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="75" Height="40" FontSize="15"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3" Background="#fff" Opacity="0.2" Height="60"/>
+                <Grid Grid.Row="3" Margin="15,0">
+                    <Label Content="Music library scroll" FontFamily="{StaticResource Bold}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#fff" FontSize="15"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <ToggleButton x:Name="MusicLibraryScrollHorz" Click="MusicLibraryScrollHorz_Click" Style="{DynamicResource LeftCornerToggleButtonStyle}" Content="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="100" Height="40" FontSize="15" IsChecked="True"/>
+                        <ToggleButton x:Name="MusicLibraryScrollVert" Click="MusicLibraryScrollVert_Click" Content="Vertical" Style="{DynamicResource RightCornerToggleButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100" Height="40" FontSize="15"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Page>

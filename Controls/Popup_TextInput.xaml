@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.Popup_TextInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1920">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="1000" VerticalAlignment="Top" Width="1920" Grid.RowSpan="3" Fill="#33000000" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+        <StackPanel x:Name="gridSearchChoices" Visibility="Collapsed" VerticalAlignment="Bottom" Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal">
+            <ToggleButton x:Name="toggleSeachChoiceAll" Content="All" Style="{DynamicResource ToggleButtonStyleAlpha}" MinHeight="20" MinWidth="20" Height="50" Margin="2" Checked="toggleSeachChoiceAll_Checked"/>
+            <ToggleButton x:Name="toggleSeachChoiceArtist" Content="Artist" Style="{DynamicResource ToggleButtonStyleAlpha}" MinHeight="20" MinWidth="20" Height="50" Margin="2" Checked="toggleSeachChoiceArtist_Checked"/>
+            <ToggleButton x:Name="toggleSeachChoiceAlbum" Content="Album" Style="{DynamicResource ToggleButtonStyleAlpha}" MinHeight="20" MinWidth="20" Height="50" Margin="2" Checked="toggleSeachChoiceAlbum_Checked"/>
+            <ToggleButton x:Name="toggleSeachChoiceSong" Content="Song" Style="{DynamicResource ToggleButtonStyleAlpha}" MinHeight="20" MinWidth="20" Height="50" Margin="2" Checked="toggleSeachChoiceSong_Checked"/>
+        </StackPanel>
+        <Rectangle HorizontalAlignment="Center" Height="250" Grid.Row="1" VerticalAlignment="Top" Width="600" RadiusX="25" RadiusY="20">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF363636" Offset="0"/>
+                    <GradientStop Color="#FF1F1F1F" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="txtInput" HorizontalAlignment="Center" Height="38" Margin="0,112,0,100" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="580" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Quicksand Book"/>
+        <Button x:Name="btOkay" Content="Submit" HorizontalAlignment="Center" Margin="0,184,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btOkay_Click" Height="60" Style="{DynamicResource ButtonStyleAlpha}" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}"/>
+        <Label x:Name="lblInstruction" Content="Create a new playlist..." HorizontalAlignment="Center" Margin="670,41,670,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" Width="580" HorizontalContentAlignment="Center" FontFamily="{StaticResource Bold}" FontSize="28"/>
+        <Label x:Name="lblError" Content="" HorizontalAlignment="Center" Margin="670,75,670,0" Grid.Row="1" VerticalAlignment="Top" Foreground="Red" Width="580" HorizontalContentAlignment="Center" FontFamily="{StaticResource Bold}" FontSize="20"/>
+        <Grid x:Name="gridKeyBoard" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.RowSpan="6  " HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#00000000" Margin="-20"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}">
+                <Button x:Name="btn1" Content="1" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn2" Content="2" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn3" Content="3" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn4" Content="4" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn5" Content="5" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn6" Content="6" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn7" Content="7" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn8" Content="8" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn9" Content="9" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btn0" Content="0" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                <Button x:Name="btnQ" Content="Q" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnW" Content="W" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnE" Content="E" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnR" Content="R" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnT" Content="T" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnY" Content="Y" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnU" Content="U" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnI" Content="I" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnO" Content="O" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnP" Content="P" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+                <Button x:Name="btnA" Content="A" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnS" Content="S" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnD" Content="D" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnF" Content="F" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnG" Content="G" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnH" Content="H" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnJ" Content="J" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnK" Content="K" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnL" Content="L" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center">
+                <Button x:Name="btnZ" Content="Z" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnX" Content="X" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnC" Content="C" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnV" Content="V" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnB" Content="B" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnN" Content="N" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+                <Button x:Name="btnM" Content="M" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" Click="btnKey_Click" Margin="2" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" MinWidth="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center">
+                <Button x:Name="btnSpace" Content="Space" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" MinWidth="350" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}" Margin="2" Click="btnSpace_Click"/>
+                <Button x:Name="btnBack" Content="Erase" Style="{DynamicResource ButtonStyleAlpha}" MinHeight="20" MinWidth="20" Margin="2" Click="btnBack_Click" Height="{Binding Mode=OneWay, Source={StaticResource TouchButtonHeight}}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

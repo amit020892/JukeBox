@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.LibraryCard2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="200" MinHeight="250" MinWidth="200">
+    <Grid Width="200" Height="250" HorizontalAlignment="Left">
+        <Rectangle x:Name="bgRectangle" HorizontalAlignment="Left" Height="250" Stroke="Black" VerticalAlignment="Top" Width="200" RadiusX="20" RadiusY="20">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFAAAAAA" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="bgRectangle2" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" RadiusX="20" RadiusY="20" Margin="0,0,0,0">
+            <Rectangle.Fill>
+                <ImageBrush />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="bgRectangle3" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" RadiusX="20" RadiusY="20" Margin="0,0,0,0">
+            <Rectangle.Fill>
+                <RadialGradientBrush GradientOrigin="1,1" Center="1,1" RadiusX="2.2" RadiusY="2">
+                    <GradientStop Color="#00000000" Offset="0"/>
+                    <GradientStop Offset="1"/>
+                    <GradientStop Color="#00000000" Offset="0.48"/>
+                    <GradientStop Color="#33FFFFFF" Offset="0.49"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid >
+            <Label x:Name="lblNameAlpha" Padding="0" Content="Label" HorizontalAlignment="Left" Margin="10,5,10,0" VerticalAlignment="Top" Width="180" FontWeight="Bold" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26"/>
+            <Label x:Name="lblNameBeta" Padding="0" Content="Label" HorizontalAlignment="Left" Margin="10,22,10,0" VerticalAlignment="Top" Width="180" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="17"/>
+            <StackPanel x:Name="stackTracks" HorizontalAlignment="Left" Height="149" Margin="10,41,0,0" VerticalAlignment="Top" Width="180"/>
+        </Grid>
+        <Button Click="Rectanngle_Expand_Click" Height="200" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Rectangle x:Name="bgRectangle" HorizontalAlignment="Left" Height="200" Stroke="Black" VerticalAlignment="Top" Width="200" RadiusX="20" RadiusY="20" Fill="#00FF0000"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label x:Name="lblContentCount" Content="5/5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" Background="#33000000" BorderBrush="Black" FontSize="18" FontFamily="{StaticResource Bold}"/>
+        <Button x:Name="btnRemoveAll" Content="X" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="45" MinHeight="45" Width="20" Height="20" Margin="0,0,10,2" Padding="0,0,0,0" Click="btnRemoveAll_Click" Background="{DynamicResource ControlGradientMainHighlight}" BorderBrush="{DynamicResource ControlGradientMain}" />
+        <Button x:Name="btnAddAll" Content="+" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="45" MinHeight="45" Width="20" Height="20" Margin="0,0,10,2" Padding="0,0,0,0" Click="btnAddAll_Click" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}" />
+        <Button x:Name="btnPlayAll" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyleAlpha}" MinWidth="45" MinHeight="45" Width="20" Height="20" Margin="0,0,10,2" Padding="0,0,0,0" Click="btnPlayAll_Click">
+            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Style1/icon_Play.png" Margin="5,5,5,5"/>
+        </Button>
+        <Rectangle x:Name="bgSelected" Visibility="Collapsed" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="200" RadiusX="20" RadiusY="20" Stroke="{DynamicResource ControlGradientMainHighlight_Red}" StrokeThickness="5"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.favouriteItemsPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Width="900" Height="820" Margin="0,40" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.RowSpan="3" Grid.Column="1" Background="#000" Opacity="0.8"/>
+        <Grid Background="#000" Grid.Column="1">
+            <Label Margin="0,0,0,0" Content="My Favourites" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="26" Foreground="#fff"/>
+            <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Margin="30,0,30,0" Height="40" Content="Albums" Padding="0" TextElement.Foreground="#fff" FontWeight="Bold" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#000">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BtnAlbumCount" Style="{DynamicResource CircleButtonStyle}" Margin="30,0" Content="10" MinHeight="36" MinWidth="36" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            </Grid>
+            <Image x:Name="UnfavIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Close.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0" MouseDown="ClosePopup"/>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1">
+            <Image Source="/JukeBoxSolutions;component/Images/Theme1/main_background.png" Stretch="Fill"/>
+            <Image Source="/JukeBoxSolutions;component/Images/Theme1/martintorrible21.png" Opacity="0.5"/>
+            <Grid Background="#56B1C6" Opacity="0.3"></Grid>
+        </Grid>
+        <Button Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"  VerticalAlignment="Center" x:Name="btnPrevious" Style="{StaticResource SomeButtonStyle}" Width="60" Height="60" IsEnabled="False" Margin="0,0,-100,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/JukeBoxSolutions;component/Images/Theme1/ArrowLeft.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"  VerticalAlignment="Center" x:Name="btnNext" Style="{StaticResource SomeButtonStyle}" Width="60" Height="60" IsEnabled="False" Margin="-100,0,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/JukeBoxSolutions;component/Images/Theme1/ArrowRight.png"/>
+            </Button.Background>
+        </Button>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" x:Name="ItemsContainer"/>
+
+        <Button Grid.Row="3" Grid.Column="1" x:Name="BtnPlayAll" Width="150" Height="56" Background="#fff" Margin="5,0,0,10" HorizontalAlignment="Center" Click="PlayAllAlbums">
+            <Button.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="28">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/PlayButtonActive.png" Width="20"/>
+                                        <Label Grid.ColumnSpan="2" Margin="30,0,0,0" Content="Play All" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="#000"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</UserControl>

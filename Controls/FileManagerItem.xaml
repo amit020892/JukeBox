@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.FileManagerItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="#FFF4F4F5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="25"></RowDefinition>
+            <RowDefinition MaxHeight="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="lblContentText" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" MouseDown="lblContentText_MouseDown" />
+        <StackPanel Grid.Row="0" x:Name="stackActions" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top" Width="320" Orientation="Horizontal" Grid.RowSpan="2"/>
+        <Button x:Name="btnImport" Content="Import" HorizontalAlignment="Left" Margin="715,3,0,0" VerticalAlignment="Top" Width="75" Click="Import_Click" IsEnabled="False"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="640,3,0,0" VerticalAlignment="Top" Width="75" Click="Update_Click" />
+
+        <Label Grid.Row="1" x:Name="lblRawFileName" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="580" Visibility="Collapsed"/>
+
+        <StackPanel x:Name="stackGrp1" HorizontalAlignment="Left" Height="100" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Collapsed" >
+            <TextBox x:Name="tbGrp1" Grid.Row="2" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="100" Visibility="Collapsed" TextChanged="tbGrp1_TextChanged" LostFocus="tbGrp1_LostFocus"/>
+            <Label Grid.Row="2" x:Name="lblGrp1" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Visibility="Collapsed" MouseDoubleClick="lblGrp1_MouseDoubleClick"/>
+            <Button Grid.Row="2" x:Name="btnSetArtistGrp1" Content="Artist" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="btnSetArtistGrp_Click" Visibility="Collapsed"/>
+            <Button Grid.Row="2" x:Name="btnSetTrackGrp1" Content="Track" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="btnSetTrackGrp_Click" Visibility="Collapsed"/>
+            <Button Grid.Row="2" x:Name="btnSetTrackNoGrp1" Content="Track No." HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="btnSetTrackNoGrp_Click" Visibility="Collapsed"/>
+            <Button Grid.Row="2" x:Name="btnCombineGrp1" Content="+" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="50" Margin="0,0,0,0" Click="btnCombineGrp_Click" Visibility="Collapsed"/>
+            <Button Grid.Row="2" x:Name="btnDestroyGrp1" Content="X" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="50" Margin="50,-20,0,0" Click="btnDestroyGrp_Click" Visibility="Collapsed"/>
+        </StackPanel>
+
+
+
+        <StackPanel x:Name="stackGrp2" HorizontalAlignment="Left" Height="100" Margin="115,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Collapsed" >
+            <Label Grid.Row="2" x:Name="lblGrp2" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetArtistGrp_Click" x:Name="btnSetArtistGrp2" Content="Artist" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetTrackGrp_Click" x:Name="btnSetTrackGrp2" Content="Track" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnCombineGrp_Click" x:Name="btnCombineGrp2" Content="+" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnDestroyGrp_Click" x:Name="btnDestroyGrp2" Content="X" HorizontalAlignment="Left" Margin="50,-20,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed" />
+        </StackPanel>
+
+        <StackPanel x:Name="stackGrp3" HorizontalAlignment="Left" Height="100" Margin="220,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Collapsed" >
+            <Label Grid.Row="2" x:Name="lblGrp3" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetArtistGrp_Click" x:Name="btnSetArtistGrp3" Content="Artist" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetTrackGrp_Click"  x:Name="btnSetTrackGrp3" Content="Track" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnCombineGrp_Click" x:Name="btnCombineGrp3" Content="+" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnDestroyGrp_Click" x:Name="btnDestroyGrp3" Content="X" HorizontalAlignment="Left" Margin="50,-20,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed"/>
+        </StackPanel>
+
+        <StackPanel x:Name="stackGrp4" HorizontalAlignment="Left" Height="100" Margin="325,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Collapsed" >
+            <Label Grid.Row="2" x:Name="lblGrp4" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetArtistGrp_Click" x:Name="btnSetArtistGrp4" Content="Artist" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnSetTrackGrp_Click"  x:Name="btnSetTrackGrp4" Content="Track" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnCombineGrp_Click" x:Name="btnCombineGrp4" Content="+" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed"/>
+            <Button Grid.Row="2" Click="btnDestroyGrp_Click" x:Name="btnDestroyGrp4" Content="X" HorizontalAlignment="Left" Margin="50,-20,0,0" VerticalAlignment="Top" Width="50" Visibility="Collapsed"/>
+        </StackPanel>
+        <Label x:Name="lblTrack" Content="Track" HorizontalAlignment="Left" Margin="480,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="310" Foreground="#FF979797" Visibility="Collapsed"/>
+        <Label x:Name="lblArtist" Content="Artist" HorizontalAlignment="Left" Margin="480,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="310" Foreground="#FF979797" Visibility="Collapsed"/>
+        <Label x:Name="lblAlbum" Content="Album" HorizontalAlignment="Left" Margin="480,52,0,0" Grid.Row="2" VerticalAlignment="Top" Width="310" Foreground="#FF979797" Visibility="Collapsed"/>
+
+    </Grid>
+</UserControl>

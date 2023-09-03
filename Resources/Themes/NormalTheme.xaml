@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <LinearGradientBrush x:Key="ControlGradientMain" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF455288" Offset="0"/>
+        <GradientStop Color="#FF212942" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlGradientMainHighlight" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF4062f2" Offset="0"/>
+        <GradientStop Color="#FF1e6dfd" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlGradientMain_Red" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFA03131" Offset="0"/>
+        <GradientStop Color="#FF471212" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlGradientMainHighlight_Red" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFF24040" Offset="0"/>
+        <GradientStop Color="#FFFD1E1E" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlGradientMain_Green" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF208B25" Offset="0"/>
+        <GradientStop Color="#FF214223" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlGradientMainHighlight_Green" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF58F240" Offset="0"/>
+        <GradientStop Color="#FF14AE14" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <SolidColorBrush x:Key="PrimaryColour" Color="#ffe7ecf0"/>
+    <SolidColorBrush x:Key="PrimaryColourDark" Color="#ffe7ecf0"/>
+    <SolidColorBrush x:Key="SecondaryColour" Color="#ffe7ecf0"/>
+    <SolidColorBrush x:Key="SecondaryColourDark" Color="#ffe7ecf0"/>
+    <SolidColorBrush x:Key="ControlColour" Color="#ff455288"/>
+    <SolidColorBrush x:Key="ControlColourDark" Color="#ff323d5d"/>
+
+    <SolidColorBrush x:Key="ControlColourHighlight" Color="#FF4362F3"/>
+    <SolidColorBrush x:Key="ControlColourHighlightDark" Color="#FF4353E7"/>
+</ResourceDictionary>
+
+

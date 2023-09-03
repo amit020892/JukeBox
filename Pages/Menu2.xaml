@@ -1,0 +1,37 @@
+﻿<Page x:Class="JukeBoxSolutions.Menu2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JukeBoxSolutions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Menu2">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btnImportMedia" Content="Import Media" Style="{DynamicResource RoundedButtonStyle}" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" FontSize="18" Click="btnImportMedia_Click"/>
+            <ToggleButton x:Name="btnAdminMode" Content="Admin Mode" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedToggleButtonStyle}" FontSize="18" Click="btnAdminMode_Click"/>
+            <Button x:Name="btnSettings" Content="Settings" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnSettings_Click"/>
+            <Button x:Name="ThemeTestButton" Content="ChangeTheme" Grid.Column="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="ThemeTestButton_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btnForceAlbumCovers" Content="Force Album Covers" Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnForceAlbumCovers_Click" />
+            <Button x:Name="btnSmartUpdater" Content="Smart Updater" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnSmartUpdater_Click" />
+            <Button x:Name="btnOnlineAccounts" Content="Online Accounts" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnOnlineAccounts_Click" />
+            <Button x:Name="btnWifi" Content="No Wifi" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnWifi_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btnTestAttention" Content="Attention Test" Grid.Row="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnTestAttention_Click" />
+            <Button x:Name="btnTestImportErrors" Content="Import Errors" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnTestImportErrors_Click"/>
+            <Button x:Name="btnTestImportAttention" Content="Import Attention" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnTestImportAttention_Click"/>
+            <Button x:Name="btnForceViewUpdate" Content="View Update" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnForceViewUpdate_Click"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btnExportMetaData" Content="Export MetaData" Grid.Row="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" IsEnabled="True" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnExportMetaData_Click" />
+            <Button x:Name="btnResumeUpdate" Content="Resume Update" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" IsEnabled="False" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnResumeUpdate_Click"/>
+            <Button x:Name="btnResumeImport" Content="Resume Import" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" IsEnabled="False" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnResumeImport_Click"/>
+            <Button x:Name="btnResetDatabase" Content="Reset Database" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="210" Height="56" IsEnabled="False" Style="{DynamicResource RoundedButtonStyle}" FontSize="18" Click="btnResetDatabase_Click"/>
+        </StackPanel>
+    </StackPanel>
+    
+</Page>

@@ -1,0 +1,92 @@
+﻿<Window x:Class="JukeBoxSolutions.Pages.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" WindowState="Maximized" WindowStyle="None">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Frame Content="Frame" HorizontalAlignment="Center" NavigationUIVisibility="Hidden" Margin="0,0,0,0" VerticalAlignment="Center"  Name="MainFrame" Grid.Row="0" Grid.RowSpan="2"/>
+        <Grid Grid.Row="0" Grid.RowSpan="2">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Images/Theme1/Mute.png" Width="36"></Image>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Images/Theme1/VolumeLevel.png" Height="12" Margin="5,0"></Image>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Images/Theme1/VolumeUP.png" Width="36"></Image>
+            </StackPanel>
+            
+            <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Images/Theme1/ArrowLeft.png" Width="50" MouseDown="btnPreviousMenu_clicked"></Image>
+            <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Source="../Images/Theme1/ArrowRight.png" Width="50" MouseDown="btnNextMenu_clicked"></Image>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+
+                <Grid>
+                    <Image Source="../Images/Theme1/Karaoke.png" Width="350" Height="350" MouseDown="btnKaraoke_clicked"></Image>
+                    <StackPanel Margin="20" VerticalAlignment="Center" x:Name="KaraokeMenus" Visibility="Hidden">
+                        <Image Source="../Images/Theme1/Group2.png" Width="250" MouseDown="LastPlayed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group3.png" Width="250" Margin="0,5,0,0" MouseDown="JustPalyed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group4.png" Width="250" Margin="0,5,0,0" MouseDown="Playlist_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group5.png" Width="250" Margin="0,5,0,0" MouseDown="LibraryClicked"></Image>
+                    </StackPanel>
+
+                </Grid>
+                <Grid>
+                    <Image Source="../Images/Theme1/Music.png" Width="350" Height="350" MouseDown="btnMusic_clicked"></Image>
+                    <StackPanel Margin="20" VerticalAlignment="Center" x:Name="MusicMenus" Visibility="Hidden">
+                        <Image Source="../Images/Theme1/Group2.png" Width="250" MouseDown="LastPlayed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group3.png" Width="250" Margin="0,5,0,0" MouseDown="JustPalyed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group4.png" Width="250" Margin="0,5,0,0" MouseDown="Playlist_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group5.png" Width="250" Margin="0,5,0,0" MouseDown="LibraryClicked"></Image>
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <Image Source="../Images/Theme1/Video.png" Width="350" Height="350" MouseDown="btnVideo_clicked"></Image>
+                    <StackPanel Margin="20" VerticalAlignment="Center" x:Name="VideoMenus" Visibility="Hidden">
+                        <Image Source="../Images/Theme1/Group2.png" Width="250" MouseDown="LastPlayed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group3.png" Width="250" Margin="0,5,0,0" MouseDown="JustPalyed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group4.png" Width="250" Margin="0,5,0,0" MouseDown="Playlist_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group5.png" Width="250" Margin="0,5,0,0" MouseDown="LibraryClicked"></Image>
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <Image Source="../Images/Theme1/Radio.png" Width="350" Height="350" MouseDown="btnRadio_clicked"></Image>
+                    <StackPanel Margin="20" VerticalAlignment="Center" x:Name="RadioMenus" Visibility="Hidden">
+                        <Image Source="../Images/Theme1/Group2.png" Width="250" MouseDown="LastPlayed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group3.png" Width="250" Margin="0,5,0,0" MouseDown="JustPalyed_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group4.png" Width="250" Margin="0,5,0,0" MouseDown="Playlist_clicked"></Image>
+                        <Image Source="../Images/Theme1/Group5.png" Width="250" Margin="0,5,0,0" MouseDown="LibraryClicked"></Image>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,0,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <Image Source="../Images/Theme1/CloseIcon.png" Width="50" Visibility="Hidden"></Image>
+                    <Image Source="../Images/Theme1/InfoIcon.png" Width="50"></Image>
+                    <Image Source="../Images/Theme1/Shuffle.png" Width="50" Margin="5,0" MouseDown="btnShuffle_clicked"></Image>
+                    <Image Source="../Images/Theme1/Previous.png" Width="50" Margin="5,0" MouseDown="btnPrevious_clicked"></Image>
+                    <Image x:Name="BtnPlay" Source="../Images/Theme1/Play.png" Margin="5,0" Width="75" MouseDown="btnPlay_clicked"></Image>
+                    <Image x:Name="BtnPause" Visibility="Collapsed" Source="../Images/Theme1/Pause.png" Margin="5,0" Width="75" MouseDown="btnPause_clicked"></Image>
+                    <Image Source="../Images/Theme1/Next.png" Width="50" Margin="5,0" MouseDown="btnNext_clicked"></Image>
+                    <Image Source="../Images/Theme1/Repeat.png" Width="50" Margin="5,0" MouseDown="btnRepeat_clicked"></Image>
+                    <Image Source="../Images/Theme1/Playlist.png" Width="50" MouseDown="btnPlaylist_clicked"></Image>
+                </StackPanel>-->
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Visibility="Collapsed" x:Name="lblTime1" Content="XXX" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>                
+                <Slider Visibility="Collapsed" x:Name="sliderTrackBar" Style="{StaticResource Horizontal_Slider}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="800" IsMoveToPointEnabled="True"/>
+                <Label Visibility="Collapsed" x:Name="lblTime2" Content="XXX" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+            </StackPanel>           
+
+            <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Images/Theme1/Home.png" Width="80"></Image>
+            <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Source="../Images/Theme1/Search.png" Width="80"></Image>
+        </Grid>
+
+    </Grid>
+</Window>

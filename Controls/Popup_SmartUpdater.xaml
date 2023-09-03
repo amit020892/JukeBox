@@ -1,0 +1,350 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.Popup_SmartUpdater"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             xmlns:Style1="clr-namespace:JukeBoxSolutions.Controls.Style1" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid Width="700" Margin="0,50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#000">
+            <Label Content="Edit" Foreground="#fff" FontFamily="{StaticResource Bold}" FontWeight="Bold" FontSize="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Image x:Name="UnfavIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Close.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0" MouseDown="ClosePopup"/>
+        </Grid>
+        <Border Grid.Row="1" CornerRadius="0,0,8,8" BorderThickness="1" Opacity="0.71">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" x:Name="AlbumImageInBackground"/>
+            </Border.Background>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="570"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Width="700" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>               
+                <!--<Grid Grid.RowSpan="7" Background="#000" Opacity="0.71"/>-->
+                <Grid x:Name="gridTrackInfo" Margin="30,20,30,0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Bottom" Panel.ZIndex="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<Rectangle Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#7F000000" RadiusX="15" RadiusY="15" Stroke="#7FFFFFFF" />-->
+
+                    <Grid Grid.Row="0" Grid.RowSpan="6" Background="#000" Opacity="0.7"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="File Name" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Quicksand" FontSize="12" Margin="50,0,0,10"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Track Name" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Quicksand" FontSize="12" Margin="50,0,0,10"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Artist Name" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Quicksand" FontSize="12" Margin="50,0,0,10"/>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Album Name" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Quicksand" FontSize="12" Margin="50,0,0,10"/>
+
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="6" Background="#000" Opacity="0.6"/>
+                    <Label  Grid.Row="1" Grid.Column="1" Margin="30,0,0,10" x:Name="lblFileName" Content="- No File Name -" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Quicksand Book" FontSize="12" Foreground="{DynamicResource PrimaryColour}"/>
+                    <Label Grid.Row="2" Grid.Column="1" Margin="30,0,0,10" x:Name="lblMainTrackName" Content="- No Track Name -" HorizontalAlignment="Left" FontFamily="{StaticResource Bold}" FontSize="12" Foreground="{DynamicResource PrimaryColour}" MouseDown="btnTrackDetails_Click" />
+                    <Label Grid.Row="3" Grid.Column="1" Margin="30,0,0,10" x:Name="lblMainArtistName" Content="- No Artist Name -" HorizontalAlignment="Left" FontFamily="{StaticResource Bold}" FontSize="12" Foreground="{DynamicResource PrimaryColour}" MouseDown="btnArtistDetails_Click" />
+                    <Label Grid.Row="4" Grid.Column="1" Margin="30,0,0,10" x:Name="lblMainAlbumName" Content="- No Album Name -" HorizontalAlignment="Left" FontFamily="{StaticResource Bold}" FontSize="12" Foreground="{DynamicResource PrimaryColour}" MouseDown="btnAlbumDetails_Click" />
+                </Grid>
+                <!--<StackPanel Margin="0,40,0,0" Grid.Column="0" Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#33000000" Panel.ZIndex="10" >
+
+        </StackPanel>
+
+        <StackPanel Margin="0,40,0,0" Grid.Column="1" Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#33000000" Panel.ZIndex="10" >
+
+
+        </StackPanel>-->
+
+                <!--<Style1:BGRectangleStyle1 HorizontalAlignment="Stretch" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="2" VerticalAlignment="Stretch"/>-->
+                <Grid Grid.Row="1" Margin="30,10,30,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Column="0" Margin="0,0,30,0" x:Name="btnArtist" Content="Artist" Style="{DynamicResource LeftRoundCornerToggleButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Checked="btnArtist_Checked" Unchecked="btnArtist_Unchecked"  FontSize="18"/>
+                    <ToggleButton Grid.Column="1" Margin="10,0,20,0" x:Name="btnTitle" Content="Title" Style="{DynamicResource AllCornerToggleButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Checked="btnTitle_Checked" Unchecked="btnArtist_Unchecked" FontSize="18"/>
+                    <ToggleButton Grid.Column="2" Margin="20,0,10,0" x:Name="btnAlbum" Content="Album" Style="{DynamicResource AllCornerToggleButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Checked="btnAlbum_Checked"  Unchecked="btnArtist_Unchecked" FontSize="18"/>
+                    <ToggleButton Grid.Column="3" Margin="30,0,0,0" x:Name="btnDetails" Content="Details" Style="{DynamicResource RightRoundCornerToggleButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Visibility="Collapsed" Checked="btnDetails_Checked" Unchecked="btnDetails_Unchecked" FontSize="18"/>
+                </Grid>
+                <!--<StackPanel x:Name="stackMainToggleButtons" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <ToggleButton x:Name="btnGreenTemplate" Content="x" Style="{DynamicResource ToggleButtonStyleAlpha}" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}" Visibility="Collapsed" />
+
+            <ToggleButton Content="Artist" Height="80"  x:Name="btnArtist" VerticalAlignment="Bottom" HorizontalAlignment="Center" Style="{DynamicResource ToggleButtonStyleAlpha}" Margin="10" Checked="btnArtist_Checked" Unchecked="btnArtist_Unchecked" ></ToggleButton>
+            <ToggleButton Content="Title" Height="80" x:Name="btnTitle" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource ToggleButtonStyleAlpha}" Checked="btnTitle_Checked" Unchecked="btnArtist_Unchecked">
+            </ToggleButton>
+            <ToggleButton Content="Album" Height="80" x:Name="btnAlbum" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{DynamicResource ToggleButtonStyleAlpha}" Checked="btnAlbum_Checked"  Unchecked="btnArtist_Unchecked">
+            </ToggleButton>
+
+            <ToggleButton Content="Details" Height="80" x:Name="btnDetails" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{DynamicResource ToggleButtonStyleAlpha}" Background="{DynamicResource ControlGradientMain_Red}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Red}" Visibility="Collapsed" Checked="btnDetails_Checked" Unchecked="btnDetails_Unchecked" >
+            </ToggleButton>
+
+            <ToggleButton x:Name="btnRedTemplate" Content="x" Style="{DynamicResource ToggleButtonStyleAlpha}" Background="{DynamicResource ControlGradientMain_Red}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Red}"  Visibility="Collapsed"/>
+        </StackPanel>-->
+
+                <Grid x:Name="gridInstruction" Grid.Row="2" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblInstructionHeader" Grid.Row="0" Content="Please select / search the Artist" Foreground="{DynamicResource ControlColour}" FontFamily="Quicksand" FontSize="18" HorizontalContentAlignment="Center" Padding="0,15,0,10"/>
+                    <Label x:Name="lblInstruction" Grid.Row="1" Content="Please select / search the Artist" Foreground="{DynamicResource ControlColour}" FontFamily="{StaticResource Bold}" FontSize="20" HorizontalContentAlignment="Center" Padding="0,0,0,30" />
+                </Grid>
+
+                <Border Background="#000" CornerRadius="6" x:Name="gridDetails" Visibility="Collapsed" Grid.Row="2" Grid.RowSpan="3" Margin="30,0,30,20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="10">
+                            <Button x:Name="btnDetailsID3" Content="ID3 Details" Click="btnDetailsID3_Click"  Height="40"/>
+                            <Button x:Name="btnDetailsSiblings" Content="Sibling Files" Click="btnDetailsSiblings_Click"  Height="40" Margin="0,5,0,0"/>
+                            <Button x:Name="btnOpenFolder" Content="Open Folder" Margin="0,50,0,0" Click="btnOpenFolder_Click"   Height="40"/>
+                            <Button Content="Group All" IsEnabled="False"  Height="40" Margin="0,5,0,0"/>
+                            <Button Content="Clone from Group" IsEnabled="False"  Height="40" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ScrollViewer Grid.Column="2" >
+                            <StackPanel x:Name="stackDetails">
+                            </StackPanel>
+                        </ScrollViewer>
+
+                    </Grid>
+                </Border>
+
+
+                <Grid x:Name="gridEdit" Visibility="Collapsed" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Margin="10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button IsEnabled="False" Grid.RowSpan="2" Background="#000" Opacity="0.71" Margin="20,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBox x:Name="lblSelectedName" Foreground="#225663" FontWeight="DemiBold" Height="56" FontSize="18" VerticalContentAlignment="Center" TextAlignment="Center" Margin="30,20">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="28"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <StackPanel Grid.Column="1" x:Name="stackWordLists" Visibility="Visible" Grid.Row="1" FlowDirection="LeftToRight"  Orientation="Vertical" VerticalAlignment="Top">
+
+                        <StackPanel Visibility="Collapsed" Grid.Row="1" x:Name="stackWordsA" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,0,0">
+
+                            <Border Background="#225663" CornerRadius="12">
+                                <Grid Width="120">
+                                    <Label Content="ID3 Collection Tag: " Foreground="#fff" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <Grid Margin="0,20,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="10"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0" Margin="30,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" Background="#000" Opacity="0.5" Margin="15,0,0,0"/>
+                                <ToggleButton x:Name="btnFolderName" Foreground="#fff" Click="SelectWholeFolder" Background="#56B1C6" FontSize="20" Height="40" MinWidth="40" Width="30" Padding="0" HorizontalAlignment="Left">
+                                    <ToggleButton.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="20"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="Background" Value="#56B1C6"/>
+                                        </Style>
+                                    </ToggleButton.Resources>
+                                </ToggleButton>
+                                <Label Content="+" Grid.Column="0" VerticalAlignment="Center" Foreground="#fff" FontFamily="Quicksand" FontSize="22" Margin="7,0,0,0"/>
+                                <Label Content="Folder Name: " Grid.Column="0" VerticalAlignment="Center" Foreground="#fff" FontFamily="Quicksand" FontSize="12" HorizontalContentAlignment="Center" Margin="30,0,0,0"/>
+                                <Border Grid.Column="1" Background="#fff" CornerRadius="0,6,6,0">
+                                    <Grid/>
+                                </Border>
+
+                                <Label x:Name="lblFolderName" Content="Hello World" Grid.Column="2" VerticalAlignment="Center" Foreground="#000" FontFamily="Quicksand-Bold" FontSize="15" />
+                            </Grid>
+                            <StackPanel Grid.Row="0" Grid.Column="1" x:Name="stackWordsB" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    Margin="5,0,0,0">
+
+                                <ToggleButton MinWidth="150" x:Name="AlbumButton" Style="{DynamicResource AlbumButtonStyle}"/>
+                            </StackPanel>
+                            <Grid Grid.Row="2" Grid.Column="0" Margin="30,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="#000" Opacity="0.5" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="20,0,0,20">
+                                    <Grid/>
+                                </Border>
+                                <Label Content="File Name: " Grid.Column="0" VerticalAlignment="Center" Foreground="#fff" FontFamily="Quicksand" FontSize="12" HorizontalContentAlignment="Center" Margin="30,0,0,0"/>
+                                <Border Grid.Column="1" Background="#fff" CornerRadius="0,6,6,0">
+                                    <Grid/>
+                                </Border>
+                                <Label x:Name="lblBreadCrumbFileName" Content="Hello World" Grid.Column="2" VerticalAlignment="Center" Foreground="#000" FontFamily="Quicksand-Bold" FontSize="15" />
+                            </Grid>
+                            <StackPanel Visibility="Visible" Grid.Row="2" Grid.Column="1" x:Name="stackMainWords" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,0,0">
+                                <!--<Button Content="Test Button"/>
+                        <Button Content="Test Button"/>
+                        <Button Content="Test Button"/>
+                        <Button Content="Test Button"/>-->
+                            </StackPanel>
+                        </Grid>
+
+
+                        <!--<Grid HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="File Name: " Grid.Column="0" VerticalAlignment="Center" Foreground="{DynamicResource ControlColour}" FontFamily="Quicksand" FontSize="16" />
+                    <Label x:Name="lblBreadCrumbFileName" Content="Hello World.mp3" Grid.Column="1" VerticalAlignment="Center" Foreground="{DynamicResource ControlColour}" FontFamily="Quicksand-Bold" FontSize="18" />
+                </Grid>-->
+
+                        <StackPanel Visibility="Collapsed" Grid.Row="1" x:Name="stackAdditionalOptions" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel x:Name="stackSaveUpdate" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Visibility="Collapsed" >
+                    <Label Content="Confirm Track Update?" Foreground="{DynamicResource ControlColourDark}" FontFamily="{StaticResource Bold}" FontSize="24" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnSave" Content="Update Details" Grid.Row="3" Style="{DynamicResource ButtonStyleAlpha}" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Click="btnSave_Click" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}" />
+                    <Button x:Name="btnRevert" Content="Revert Changes" Grid.Row="3" Style="{DynamicResource ButtonStyleAlpha}" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"  Height="80" FontSize="20" />
+                </StackPanel>
+
+                <Button x:Name="btnSearchAlbum" Grid.Row="6" HorizontalAlignment="Center" Width="200" VerticalAlignment="Center" Visibility="Collapsed" Click="btnSearchAlbum_Click" Margin="0,20">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/editTrackSearchIcon.png" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <Label Content="Search Album" Foreground="#225663" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSetAlbum" Grid.Row="6" Content="Save Album" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Click="btnSetAlbum_Click"/>
+                <Button x:Name="btnSearchArtist" Grid.Row="6" Grid.ColumnSpan="2" Click="btnSearchArtist_Click" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Width="200" Margin="0,20">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/editTrackSearchIcon.png" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <Label  Content="Search Artist" Foreground="#225663" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSetArtist" Grid.Row="6" Content="Save Artist" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Click="btnSetArtist_Click"/>
+                <Button x:Name="btnSearchTrack" Grid.Row="6" Click="btnSearchTrack_Click" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Width="200" Margin="0,20">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/editTrackSearchIcon.png" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <Label Content="Search Track" Foreground="#225663" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSetTrack" Grid.Row="6" Content="Save Track" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Click="btnSetTrack_Click"/>
+
+                <Grid x:Name="gridSaveApply" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition />
+                        <RowDefinition Height="15"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#7F000000" RadiusX="15" RadiusY="15" Stroke="#7FFFFFFF" />
+
+                    <StackPanel Visibility="Collapsed" x:Name="stackSaveApply" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" >
+                        <Label Content="Apply info to additional Tracks?" Foreground="White" FontFamily="{StaticResource Bold}" FontSize="24" HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                </Grid>
+                <Button x:Name="btnNextTrack" Grid.Row="6" Content="Next Track" Style="{DynamicResource ButtonStyleAlpha}" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnNextTrack_Click" Visibility="Collapsed" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}"/>
+                <Button x:Name="btnSaveDB" Grid.Row="6" Content="Save Changes" Style="{DynamicResource ButtonStyleAlpha}" IsEnabled="True" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Background="{DynamicResource ControlGradientMain_Green}" BorderBrush="{DynamicResource ControlGradientMainHighlight_Green}" Click="btnSaveDB_Click"/>
+
+
+            </Grid>
+            <Grid x:Name="gridAdditionalCommands" Visibility="Collapsed" Grid.Row="1" Margin="30,10,30,30" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" Background="#fff" Height="46" CornerRadius="23" Width="120" x:Name="btnDeleteTrack" HorizontalAlignment="Right">
+                    <Grid MouseDown="btnDeleteData_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0,0,0">
+                            <Label Content="&lt;" Foreground="#225663" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Right" VerticalAlignment="Center" Opacity="0.5"/>
+                            <Label Content="Delete" Foreground="#225663" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <Image Source="/JukeBoxSolutions;component/Images/Theme1/DeleteIcon.png" Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,3,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Background="#fff" Height="46" CornerRadius="23" Width="150" x:Name="btnResetMetaData" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Grid MouseDown="btnResetData_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/JukeBoxSolutions;component/Images/Theme1/ResetIcon.png" Width="20" Height="20" VerticalAlignment="Center" Margin="10,3,0,0"/>
+                            <Label Content="Reset Data" Foreground="#225663" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                            <Label Content=">" Foreground="#225663" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Right" Opacity="0.5"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1" Background="#fff" Height="46" CornerRadius="23" Width="275" x:Name="btnDeleteExpanded" Visibility="Collapsed" HorizontalAlignment="Right">
+                    <Grid MouseDown="btnDeleteData_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button Style="{DynamicResource RoundButtonStyleV1}" Content="Album" Width="75" Click="btnDeleteTrack_Click"/>
+                            <Button Style="{DynamicResource RoundButtonStyleV1}" Content="Track" Width="75" Click="btnDeleteTrack_Click" Margin="5,0,0,0"/>
+                            <Label Content="&lt;" Foreground="#225663" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Right" Opacity="0.5"/>
+                            <Label Content="Delete" Foreground="#225663" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                            <Image Source="/JukeBoxSolutions;component/Images/Theme1/DeleteIcon.png" Width="20" Height="20" VerticalAlignment="Center" Margin="0,3,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Background="#fff" Height="46" CornerRadius="23" Width="320" x:Name="btnResetMetaDataExpanded" Visibility="Collapsed">
+                    <Grid MouseDown="btnResetData_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/JukeBoxSolutions;component/Images/Theme1/ResetIcon.png" Width="20" Height="20" VerticalAlignment="Center" Margin="10,3,0,0"/>
+                            <Label Content="Reset Data" Foreground="#225663" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                            <Label Content=">" Foreground="#225663" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Right" Opacity="0.5"/>
+                            <Button Style="{DynamicResource RoundButtonStyleV1}" Content="Track" Width="75" Click="btnResetMetaData_Click"/>
+                            <Button Style="{DynamicResource RoundButtonStyleV1}" Content="Album" Width="75" Margin="10,0,0,0" Click="btnResetMetaData_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

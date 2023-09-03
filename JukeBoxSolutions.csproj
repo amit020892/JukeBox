@@ -1,0 +1,1352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C1F8106-FAEE-446E-918E-53366E8897C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JukeBoxSolutions</RootNamespace>
+    <AssemblyName>JukeBoxSolutions</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <UseMSDeployExe>True</UseMSDeployExe>
+    <AllowUntrustedCertificate>true</AllowUntrustedCertificate>
+    <PublishUrl>C:\JukeboxApp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://redowlit.github.io/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.html</WebPage>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>0.9.3.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>JukeBoxSolutions.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D99FF7067BEE3209DA4E17BDB81179563690D2C2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>JukeBoxSolutions_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\MenuIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EmbedIO, Version=3.4.3.0, Culture=neutral, PublicKeyToken=5e5f048b6e04267e, processorArchitecture=MSIL">
+      <HintPath>packages\EmbedIO.3.4.3\lib\netstandard2.0\EmbedIO.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hqub.MusicBrainz.API, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MusicBrainzAPI.2.4.0\lib\net45\Hqub.MusicBrainz.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Id3.Net, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ID3.0.6.0\lib\net40\Id3.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=2018.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>packages\JetBrains.Annotations.2018.3.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedNativeWifi, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ManagedNativeWifi.2.1.0\lib\net452\ManagedNativeWifi.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpotifyAPI.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SpotifyAPI.Web.6.1.0\lib\netstandard2.0\SpotifyAPI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SpotifyAPI.Web.Auth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SpotifyAPI.Web.Auth.6.1.0\lib\netstandard2.0\SpotifyAPI.Web.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Swan.Lite, Version=3.0.0.0, Culture=neutral, PublicKeyToken=30c707c872729fff, processorArchitecture=MSIL">
+      <HintPath>packages\Unosquare.Swan.Lite.3.0.0\lib\net461\Swan.Lite.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>packages\Vlc.DotNet.Core.3.1.0\lib\net45\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>packages\Vlc.DotNet.Core.Interops.3.1.0\lib\net45\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>packages\Vlc.DotNet.Wpf.3.1.0\lib\net45\Vlc.DotNet.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="XamlRadialProgressBar.DotNet, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\XamlRadialProgressBar.1.0.3\lib\net452\XamlRadialProgressBar.DotNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AlbumLibrary.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppSetting.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Artist.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AudioSources\iTunes\HttpUtility.cs" />
+    <Compile Include="AudioSources\iTunes\iTunesSearchManager.cs" />
+    <Compile Include="AudioSources\iTunes\Models\Album.cs" />
+    <Compile Include="AudioSources\iTunes\Models\AlbumResult.cs" />
+    <Compile Include="AudioSources\iTunes\Models\Podcast.cs" />
+    <Compile Include="AudioSources\iTunes\Models\PodcastListResult.cs" />
+    <Compile Include="AudioSources\iTunes\Models\Song.cs" />
+    <Compile Include="AudioSources\iTunes\Models\SongArtist.cs" />
+    <Compile Include="AudioSources\iTunes\Models\SongArtistResult.cs" />
+    <Compile Include="AudioSources\iTunes\Models\SongResult.cs" />
+    <Compile Include="AudioSources\iTunes\Models\TVEpisode.cs" />
+    <Compile Include="AudioSources\iTunes\Models\TVEpisodeListResult.cs" />
+    <Compile Include="AudioSources\iTunes\Models\TVSeason.cs" />
+    <Compile Include="AudioSources\iTunes\Models\TVSeasonListResult.cs" />
+    <Compile Include="AudioSources\OnlineAudioSources.cs" />
+    <Compile Include="AudioSources\Spotify\SpotifyControls.cs" />
+    <Compile Include="Class\BrainzClass\Extensions.cs" />
+    <Compile Include="Class\BrainzClass\FileRequestCache.cs" />
+    <Compile Include="Class\ExportFactory.cs" />
+    <Compile Include="Class\Helpers.cs" />
+    <Compile Include="Class\ImportFactory.cs" />
+    <Compile Include="Class\Logs.cs" />
+    <Compile Include="Class\MusicFactory.cs" />
+    <Compile Include="Class\OnlineServices.cs" />
+    <Compile Include="CloseBehavior.cs" />
+    <Compile Include="Controls\CarouselControl.cs" />
+    <Compile Include="Controls\CarouselUserControl.xaml.cs">
+      <DependentUpon>CarouselUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChangeLog_PopUp.xaml.cs">
+      <DependentUpon>ChangeLog_PopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomButtonTut.xaml.cs">
+      <DependentUpon>CustomButtonTut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FavItemBar.xaml.cs">
+      <DependentUpon>FavItemBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\favouriteItemsPopup.xaml.cs">
+      <DependentUpon>favouriteItemsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileManagerImported.xaml.cs">
+      <DependentUpon>FileManagerImported.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileManagerItem.xaml.cs">
+      <DependentUpon>FileManagerItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FolderItemBar.xaml.cs">
+      <DependentUpon>FolderItemBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ICarouselControl.cs" />
+    <Compile Include="Controls\ImportProgressPopup.xaml.cs">
+      <DependentUpon>ImportProgressPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryButtonControl.xaml.cs">
+      <DependentUpon>LibraryButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaylistCardSong.xaml.cs">
+      <DependentUpon>PlaylistCardSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardV1.xaml.cs">
+      <DependentUpon>LibraryCardV1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCard2.xaml.cs">
+      <DependentUpon>LibraryCard2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCard.xaml.cs">
+      <DependentUpon>LibraryCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardRadio.xaml.cs">
+      <DependentUpon>LibraryCardRadio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KaraokeLibraryCardSongSmall.xaml.cs">
+      <DependentUpon>KaraokeLibraryCardSongSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardSongSmall.xaml.cs">
+      <DependentUpon>LibraryCardSongSmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardSong2.xaml.cs">
+      <DependentUpon>LibraryCardSong2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardSong.xaml.cs">
+      <DependentUpon>LibraryCardSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryCardSongAlbum.xaml.cs">
+      <DependentUpon>LibraryCardSongAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryPlaylist2.xaml.cs">
+      <DependentUpon>LibraryPlaylist2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaylistPopup.xaml.cs">
+      <DependentUpon>PlaylistPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SongInfoBar.xaml.cs">
+      <DependentUpon>SongInfoBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchPopup.xaml.cs">
+      <DependentUpon>SearchPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SongGroupLabelContainer.xaml.cs">
+      <DependentUpon>SongGroupLabelContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryLabel.xaml.cs">
+      <DependentUpon>LibraryLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryPlaylist.xaml.cs">
+      <DependentUpon>LibraryPlaylist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryPopup.xaml.cs">
+      <DependentUpon>LibraryPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LibraryPopupItem.xaml.cs">
+      <DependentUpon>LibraryPopupItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OnlineAccountsControl.xaml.cs">
+      <DependentUpon>OnlineAccountsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlayerNotificationBar.xaml.cs">
+      <DependentUpon>PlayerNotificationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupNotifications.xaml.cs">
+      <DependentUpon>PopupNotifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup_Choices.xaml.cs">
+      <DependentUpon>Popup_Choices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup_Confirm.xaml.cs">
+      <DependentUpon>Popup_Confirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup_Loading.xaml.cs">
+      <DependentUpon>Popup_Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup_SmartUpdater.xaml.cs">
+      <DependentUpon>Popup_SmartUpdater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup_TextInput.xaml.cs">
+      <DependentUpon>Popup_TextInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RetroLibraryButton.xaml.cs">
+      <DependentUpon>RetroLibraryButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SongPlayingAlbumCard.xaml.cs">
+      <DependentUpon>SongPlayingAlbumCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StackYearControl.xaml.cs">
+      <DependentUpon>StackYearControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Style1\BGRectangleStyle1.xaml.cs">
+      <DependentUpon>BGRectangleStyle1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Style1\Style1FolderButton.xaml.cs">
+      <DependentUpon>Style1FolderButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Style1\Style1LargeDiamondButton.xaml.cs">
+      <DependentUpon>Style1LargeDiamondButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Style1\Style1TrackItemButton.xaml.cs">
+      <DependentUpon>Style1TrackItemButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Style1\StyleButtonAlpha.xaml.cs">
+      <DependentUpon>StyleButtonAlpha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VerticalCarousel.xaml.cs">
+      <DependentUpon>VerticalCarousel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VolumnControlPanel.xaml.cs">
+      <DependentUpon>VolumnControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WifiControl.xaml.cs">
+      <DependentUpon>WifiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WifiItem.xaml.cs">
+      <DependentUpon>WifiItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\YearsPopup.xaml.cs">
+      <DependentUpon>YearsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JBDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JBDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryView.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminSQL.xaml.cs">
+      <DependentUpon>AdminSQL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FileManagerV2.xaml.cs">
+      <DependentUpon>FileManagerV2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FileManagerV3.xaml.cs">
+      <DependentUpon>FileManagerV3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\IInvokeProvider.cs" />
+    <Compile Include="Pages\ImportAnalytics.xaml.cs">
+      <DependentUpon>ImportAnalytics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ImportModeSelection.xaml.cs">
+      <DependentUpon>ImportModeSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Karaoke\KaraokeLibrary.xaml.cs">
+      <DependentUpon>KaraokeLibrary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Library.xaml.cs">
+      <DependentUpon>Library.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FileManager.xaml.cs">
+      <DependentUpon>FileManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu1.xaml.cs">
+      <DependentUpon>Menu1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu2.xaml.cs">
+      <DependentUpon>Menu2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuWindow.xaml.cs">
+      <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayListView.xaml.cs">
+      <DependentUpon>PlayListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlaylistWindow.xaml.cs">
+      <DependentUpon>PlaylistWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RadioPage.xaml.cs">
+      <DependentUpon>RadioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings_Page1.xaml.cs">
+      <DependentUpon>Settings_Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SongPlayingArtwork.xaml.cs">
+      <DependentUpon>SongPlayingArtwork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayListDetail.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PlaylistServices.cs" />
+    <Compile Include="SongLibrary.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomSplashScreen.xaml.cs">
+      <DependentUpon>CustomSplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackLibrary.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Page Include="Controls\CarouselUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ChangeLog_PopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CustomButtonTut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FavItemBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\favouriteItemsPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileManagerImported.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileManagerItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FolderItemBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ImportProgressPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlaylistCardSong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCardV1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCard2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryCardRadio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\KaraokeLibraryCardSongSmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCardSongSmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCardSong2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryCardSong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryCardSongAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryPlaylist2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PlaylistPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SongInfoBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SearchPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SongGroupLabelContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LibraryLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryPlaylist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LibraryPopupItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OnlineAccountsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlayerNotificationBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PopupNotifications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup_Choices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup_Confirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup_Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup_SmartUpdater.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup_TextInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RetroLibraryButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SongPlayingAlbumCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StackYearControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\BGRectangleStyle1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\ButtonM_Glow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\Style1FolderButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\Style1LargeDiamondButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\Style1TrackItemButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Style1\StyleButtonAlpha.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VerticalCarousel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VolumnControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WifiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WifiItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\YearsPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminSQL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FileManagerV2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FileManagerV3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ImportAnalytics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ImportModeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Karaoke\KaraokeLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Library.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LibraryItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LibraryItem.xaml.cs">
+      <DependentUpon>LibraryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\FileManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Menu1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Menu2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MenuWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PlayListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlaylistWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RadioPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SongPlayingArtwork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomSplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Junk\SQLViewBackup.txt" />
+    <Resource Include="Images\Theme1\Previous.png" />
+    <Resource Include="Images\Theme1\Repeat.png" />
+    <Resource Include="Images\Theme1\Shuffle.png" />
+    <Resource Include="Images\Theme1\TrackTime.png" />
+    <Resource Include="Images\Theme1\Next.png" />
+    <Resource Include="Images\Theme1\Home.png" />
+    <Resource Include="Images\Theme1\Search.png" />
+    <Resource Include="Images\Theme1\ArrowLeft.png" />
+    <Resource Include="Images\Theme1\ArrowRight.png" />
+    <Resource Include="Images\Theme1\CloseIcon.png" />
+    <Resource Include="Images\Theme1\Playlist.png" />
+    <Resource Include="Images\Theme1\main_background.png" />
+    <Resource Include="Images\Theme1\overlay.png" />
+    <Resource Include="Images\Theme1\bg.png" />
+    <Resource Include="Images\Theme1\Group2.png" />
+    <Resource Include="Images\Theme1\Group3.png" />
+    <Resource Include="Images\Theme1\Group4.png" />
+    <Resource Include="Images\Theme1\Group5.png" />
+    <Resource Include="Images\Theme1\InfoIcon.png" />
+    <Resource Include="Images\Theme1\Mute.png" />
+    <Resource Include="Images\Theme1\VolumeUP.png" />
+    <Resource Include="Images\Theme1\VolumeLevel.png" />
+    <Resource Include="Images\Theme1\Pause.png" />
+    <Page Include="Pages\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings_Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EntityDeploy Include="LibraryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibraryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Resource Include="Fonts\Quicksand_Bold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Bold_Oblique.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Book.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Book_Oblique.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Dash.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Light.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Quicksand_Light_Oblique.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Futura Bold font.ttf" />
+    <Resource Include="Fonts\Futura Book font.ttf" />
+    <Resource Include="Fonts\Futura Extra Black font.ttf" />
+    <Resource Include="Fonts\Futura Heavy font.ttf" />
+    <Resource Include="Fonts\futura light bt.ttf" />
+    <Resource Include="Fonts\Futura Light font.ttf" />
+    <Resource Include="Fonts\futur.ttf" />
+    <None Include="JBDBDataSet.xsc">
+      <DependentUpon>JBDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JBDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JBDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JBDBDataSet.xss">
+      <DependentUpon>JBDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryModel.edmx.diagram">
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Style1\ButtonM.png" />
+    <Resource Include="Pages\BetaBet_Combined.png" />
+    <Resource Include="Images\AlphaBet_Bottom.png" />
+    <Resource Include="Images\AlphaBet_Top.png" />
+    <Resource Include="Controls\AlbumCover.png" />
+    <Resource Include="Images\MenuIcon.png" />
+    <Resource Include="Images\btnPlayerMute.png" />
+    <Resource Include="Images\btnPlayerNext.png" />
+    <Resource Include="Images\btnPlayerPlay.png" />
+    <Resource Include="Images\btnPlayerPlaylist.png" />
+    <Resource Include="Images\btnPlayerPrevious.png" />
+    <Resource Include="Images\btnPlayerStop.png" />
+    <Resource Include="Images\btnPlayerVolume.png" />
+    <Resource Include="App_Data\SQLCode.txt" />
+    <Resource Include="Images\Menu1\Favourites.png" />
+    <Resource Include="Images\Menu1\JustPlay.png" />
+    <Resource Include="Images\Menu1\LastPlayed.png" />
+    <Resource Include="Images\Menu1\Menu1Karaoke.png" />
+    <Resource Include="Images\Menu1\Menu1KaraokeT.png" />
+    <Resource Include="Images\Menu1\Menu1MusicT.png" />
+    <Resource Include="Images\Menu1\Menu1RadioT.png" />
+    <Resource Include="Images\Menu1\Menu1VideoT.png" />
+    <Resource Include="Images\Menu1\Playlist.png" />
+    <Resource Include="Images\Menu1\Menu1Music.png" />
+    <Resource Include="Images\Menu1\Menu1Radio.png" />
+    <Resource Include="Images\Menu1\Menu1Video.png" />
+    <Resource Include="Images\Menu1\Menu1Small.png" />
+    <Resource Include="Images\Menu1\Library.png" />
+    <Resource Include="Images\btnPlayerPause.png" />
+    <Resource Include="Images\Items\SongItemLeft.png" />
+    <Resource Include="Images\Items\SongItemMiddle.png" />
+    <Resource Include="Images\Items\SongItemRight.png" />
+    <Resource Include="Images\Temp\GlassyButton.png" />
+    <Resource Include="Images\Temp\GlassyButton2.png" />
+    <Resource Include="Controls\Style1\ButtonM_Shadow.png" />
+    <Resource Include="Controls\Style1\ButtonM_ShadowBW.png" />
+    <Resource Include="Controls\Style1\ButtonM_Mask.png" />
+    <Resource Include="Controls\Style1\icon_Folder.png" />
+    <Resource Include="Controls\Style1\Style1LargeDiamondButton.png" />
+    <Resource Include="Controls\Style1\Style1PlayButton.png" />
+    <Resource Include="Controls\Style1\Style1SmallDiamondButton.png" />
+    <Resource Include="Controls\Style1\icon_FWD.png" />
+    <Resource Include="Controls\Style1\icon_Mute.png" />
+    <Resource Include="Controls\Style1\icon_Play.png" />
+    <Resource Include="Controls\Style1\icon_Repeat.png" />
+    <Resource Include="Controls\Style1\icon_RWD.png" />
+    <Resource Include="Controls\Style1\icon_Shuffle.png" />
+    <Resource Include="Controls\Style1\icon_Stop.png" />
+    <Resource Include="Controls\Style1\icon_Pause.png" />
+    <Resource Include="Controls\Style1\bg_BlueBubbles.png" />
+    <Resource Include="Controls\Style1\bg_WhiteBubbles.png" />
+    <Resource Include="Controls\Style1\icon_CDRip.png" />
+    <Resource Include="Controls\Style1\icon_FileSystem.png" />
+    <Resource Include="Controls\Style1\icon_OnlineCloud.png" />
+    <Resource Include="Controls\Style1\icon_USB.png" />
+    <Resource Include="Controls\Style1\ButtonM_Glow.png" />
+    <Content Include="Controls\Style1\ButtonM_Glow.svg" />
+    <Resource Include="Controls\Style1\ButtonM_Overlay.png" />
+    <Resource Include="Controls\Style1\Listing_cent.png" />
+    <Resource Include="Controls\Style1\Listing_left.png" />
+    <Resource Include="Controls\Style1\Listing_right.png" />
+    <Resource Include="Controls\Style1\ButtonNext.png" />
+    <Resource Include="Controls\Style1\ButtonNext_Mask.png" />
+    <Resource Include="DebugLogFile.txt" />
+    <Resource Include="Controls\Style1\icon_Plus_Mask.png" />
+    <Resource Include="Controls\Style1\Listing_cent_highlightmask.png" />
+    <Resource Include="Controls\Style1\Listing_left_highlightmask.png" />
+    <Resource Include="Controls\Style1\Listing_right_highlightmask.png" />
+    <None Include="Images\SplashScreen.png" />
+    <Resource Include="Controls\Style1\Style1SmallDiamondButtonMask1.png" />
+    <Resource Include="Controls\Style1\Style1SmallDiamondButtonMask2.png" />
+    <Resource Include="Controls\Style1\Style1SmallDiamondButtonMask3.png" />
+    <Resource Include="Controls\Style1\Style1LargeDiamondButtonMask1.png" />
+    <Resource Include="Controls\Style1\Style1LargeDiamondButtonMask2.png" />
+    <Resource Include="Controls\Style1\Style1LargeDiamondButtonMask3.png" />
+    <Resource Include="Controls\Style1\icon_VolDown.png" />
+    <Resource Include="Controls\Style1\icon_VolUp.png" />
+    <Resource Include="Controls\Style1\icon_Playlist.png" />
+    <Resource Include="Images\MenuIcon.ico" />
+    <Resource Include="Controls\Style1\icon_Search.png" />
+    <Resource Include="Controls\Style1\icon_info.png" />
+    <Resource Include="Images\Theme1\BTnRectange.png" />
+    <Resource Include="Images\Theme1\BtnRectangleWHite.png" />
+    <Resource Include="Images\Theme1\Play.png" />
+    <Resource Include="Images\Theme1\Karaoke.png" />
+    <Resource Include="Images\Theme1\Music.png" />
+    <Resource Include="Images\Theme1\Radio.png" />
+    <Resource Include="Images\Theme1\Video.png" />
+    <Resource Include="Images\Theme1\KaraokeWT.png" />
+    <Resource Include="Images\Theme1\RadioWT.png" />
+    <Resource Include="Images\Theme1\VideoWT.png" />
+    <Resource Include="Images\Theme1\MusicWT.png" />
+    <Resource Include="Images\Theme1\AdminMenu.png" />
+    <Resource Include="Images\Theme1\cdrip.png" />
+    <Resource Include="Images\Theme1\filemanager.png" />
+    <Resource Include="Images\Theme1\onlint.png" />
+    <Resource Include="Images\Theme1\usb.png" />
+    <Resource Include="Images\Theme1\importmedia.png" />
+    <Resource Include="Images\Theme1\folderIc.png" />
+    <Resource Include="Images\Theme1\AddToPlaylist.png" />
+    <Resource Include="Images\Theme1\PlayAlbum.png" />
+    <Resource Include="Images\Theme1\SearchAlbum.png" />
+    <Resource Include="Images\Theme1\trackMenu.png" />
+    <Resource Include="Images\Theme1\DotButtonActive.png" />
+    <Resource Include="Images\Theme1\PlayButtonActive.png" />
+    <Resource Include="Images\Theme1\ControlPanelBG.png" />
+    <Resource Include="Images\Theme1\file_manager_title.png" />
+    <Resource Include="Images\Theme1\editTrackSearchIcon.png" />
+    <Resource Include="Images\Theme1\DeleteIcon.png" />
+    <Resource Include="Images\Theme1\ResetIcon.png" />
+    <Resource Include="Images\Theme1\Keyboard.png" />
+    <Resource Include="Images\Theme1\MediaPanelButton.png" />
+    <Resource Include="Images\Theme1\Keybg.png" />
+    <Resource Include="Images\Theme1\ArrowDown.png" />
+    <Resource Include="Images\Theme1\ArrowUp.png" />
+    <Resource Include="Images\Theme1\OpenBtn.png" />
+    <Resource Include="Images\Theme1\Favourite.png" />
+    <Resource Include="Images\Theme1\Unfavourite.png" />
+    <Resource Include="Images\Theme1\Close.png" />
+    <Resource Include="Images\Theme1\AddB.png" />
+    <Resource Include="Images\Theme1\RemoveB.png" />
+    <Resource Include="Images\Theme1\AddYear.png" />
+    <Resource Include="Images\Theme1\RemoveYear.png" />
+    <Resource Include="Images\Theme1\backspace.png" />
+    <Resource Include="Images\Theme1\uppercase.png" />
+    <Resource Include="Images\Theme1\downArrow.png" />
+    <Resource Include="Images\Theme1\upArrow.png" />
+    <Resource Include="Images\Theme1\InfoIconA.png" />
+    <Resource Include="Images\Theme1\MuteActive.png" />
+    <Resource Include="Images\Theme1\volLevel1.png" />
+    <Resource Include="Images\Theme1\volLevel1A.png" />
+    <Resource Include="Images\Theme1\volLevel2.png" />
+    <Resource Include="Images\Theme1\volLevel2A.png" />
+    <Resource Include="Images\Theme1\volLevel3.png" />
+    <Resource Include="Images\Theme1\volLevel3A.png" />
+    <Resource Include="Images\Theme1\volLevel4.png" />
+    <Resource Include="Images\Theme1\volLevel4A.png" />
+    <Resource Include="Images\Theme1\volLevel5.png" />
+    <Resource Include="Images\Theme1\volLevel5A.png" />
+    <Resource Include="Images\Theme1\MusicLibraryT.png" />
+    <Resource Include="Images\Theme1\Checked.png" />
+    <Resource Include="Images\Theme1\Artwork.png" />
+    <Resource Include="Images\Theme1\AddedVector.png" />
+    <Resource Include="Images\Theme10\Design10.png" />
+    <Resource Include="Images\Theme10\Design10K.png" />
+    <Resource Include="Images\Theme10\Design10KT.png" />
+    <Resource Include="Images\Theme10\Design10M.png" />
+    <Resource Include="Images\Theme10\Design10MT.png" />
+    <Resource Include="Images\Theme10\Design10R.png" />
+    <Resource Include="Images\Theme10\Design10RT.png" />
+    <Resource Include="Images\Theme10\Design10V.png" />
+    <Resource Include="Images\Theme10\Design10VT.png" />
+    <Resource Include="Images\Theme11\Design11.png" />
+    <Resource Include="Images\Theme11\Design11K.png" />
+    <Resource Include="Images\Theme11\Design11KT.png" />
+    <Resource Include="Images\Theme11\Design11M.png" />
+    <Resource Include="Images\Theme11\Design11MT.png" />
+    <Resource Include="Images\Theme11\Design11R.png" />
+    <Resource Include="Images\Theme11\Design11RT.png" />
+    <Resource Include="Images\Theme11\Design11V.png" />
+    <Resource Include="Images\Theme11\Design11VT.png" />
+    <Resource Include="Images\Theme12\Design12.png" />
+    <Resource Include="Images\Theme12\Design12K.png" />
+    <Resource Include="Images\Theme12\Design12KT.png" />
+    <Resource Include="Images\Theme12\Design12M.png" />
+    <Resource Include="Images\Theme12\Design12MT.png" />
+    <Resource Include="Images\Theme12\Design12R.png" />
+    <Resource Include="Images\Theme12\Design12RT.png" />
+    <Resource Include="Images\Theme12\Design12V.png" />
+    <Resource Include="Images\Theme12\Design12VT.png" />
+    <Resource Include="Images\Theme13\Design13.png" />
+    <Resource Include="Images\Theme13\Design13K.png" />
+    <Resource Include="Images\Theme13\Design13KT.png" />
+    <Resource Include="Images\Theme13\Design13M.png" />
+    <Resource Include="Images\Theme13\Design13MT.png" />
+    <Resource Include="Images\Theme13\Design13R.png" />
+    <Resource Include="Images\Theme13\Design13RT.png" />
+    <Resource Include="Images\Theme13\Design13V.png" />
+    <Resource Include="Images\Theme13\Design13VT.png" />
+    <Resource Include="Images\Theme14\Design14.png" />
+    <Resource Include="Images\Theme14\Design14K.png" />
+    <Resource Include="Images\Theme14\Design14KT.png" />
+    <Resource Include="Images\Theme14\Design14M.png" />
+    <Resource Include="Images\Theme14\Design14MT.png" />
+    <Resource Include="Images\Theme14\Design14R.png" />
+    <Resource Include="Images\Theme14\Design14RT.png" />
+    <Resource Include="Images\Theme14\Design14V.png" />
+    <Resource Include="Images\Theme14\Design14VT.png" />
+    <Resource Include="Images\Theme15\Design15.png" />
+    <Resource Include="Images\Theme15\Design15K.png" />
+    <Resource Include="Images\Theme15\Design15KT.png" />
+    <Resource Include="Images\Theme15\Design15M.png" />
+    <Resource Include="Images\Theme15\Design15MT.png" />
+    <Resource Include="Images\Theme15\Design15R.png" />
+    <Resource Include="Images\Theme15\Design15RT.png" />
+    <Resource Include="Images\Theme15\Design15V.png" />
+    <Resource Include="Images\Theme15\Design15VT.png" />
+    <Resource Include="Images\Theme16\Design16.png" />
+    <Resource Include="Images\Theme16\Design16K.png" />
+    <Resource Include="Images\Theme16\Design16KT.png" />
+    <Resource Include="Images\Theme16\Design16M.png" />
+    <Resource Include="Images\Theme16\Design16MT.png" />
+    <Resource Include="Images\Theme16\Design16R.png" />
+    <Resource Include="Images\Theme16\Design16RT.png" />
+    <Resource Include="Images\Theme16\Design16V.png" />
+    <Resource Include="Images\Theme16\Design16VT.png" />
+    <Resource Include="Images\Theme16\Home.png" />
+    <Resource Include="Images\Theme16\Next.png" />
+    <Resource Include="Images\Theme16\Play.png" />
+    <Resource Include="Images\Theme16\Previous.png" />
+    <Resource Include="Images\Theme16\Repeat.png" />
+    <Resource Include="Images\Theme16\Search.png" />
+    <Resource Include="Images\Theme16\Shuffle.png" />
+    <Resource Include="Images\Theme10\Home.png" />
+    <Resource Include="Images\Theme10\Next.png" />
+    <Resource Include="Images\Theme10\Play.png" />
+    <Resource Include="Images\Theme10\Playlist.png" />
+    <Resource Include="Images\Theme10\Previous.png" />
+    <Resource Include="Images\Theme10\Repeat.png" />
+    <Resource Include="Images\Theme10\Search.png" />
+    <Resource Include="Images\Theme10\Shuffle.png" />
+    <Resource Include="Images\Theme11\Home.png" />
+    <Resource Include="Images\Theme11\Next.png" />
+    <Resource Include="Images\Theme11\Play.png" />
+    <Resource Include="Images\Theme11\Playlist.png" />
+    <Resource Include="Images\Theme11\Previous.png" />
+    <Resource Include="Images\Theme11\Repeat.png" />
+    <Resource Include="Images\Theme11\Search.png" />
+    <Resource Include="Images\Theme11\Shuffle.png" />
+    <Resource Include="Images\Theme12\Home.png" />
+    <Resource Include="Images\Theme12\Next.png" />
+    <Resource Include="Images\Theme12\Play.png" />
+    <Resource Include="Images\Theme12\Playlist.png" />
+    <Resource Include="Images\Theme12\Previous.png" />
+    <Resource Include="Images\Theme12\Repeat.png" />
+    <Resource Include="Images\Theme12\Search.png" />
+    <Resource Include="Images\Theme12\Shuffle.png" />
+    <Resource Include="Images\Theme13\Home.png" />
+    <Resource Include="Images\Theme13\Next.png" />
+    <Resource Include="Images\Theme13\Play.png" />
+    <Resource Include="Images\Theme13\Playlist.png" />
+    <Resource Include="Images\Theme13\Previous.png" />
+    <Resource Include="Images\Theme13\Repeat.png" />
+    <Resource Include="Images\Theme13\Search.png" />
+    <Resource Include="Images\Theme13\Shuffle.png" />
+    <Resource Include="Images\Theme14\Home.png" />
+    <Resource Include="Images\Theme14\Next.png" />
+    <Resource Include="Images\Theme14\Play.png" />
+    <Resource Include="Images\Theme14\Playlist.png" />
+    <Resource Include="Images\Theme14\Previous.png" />
+    <Resource Include="Images\Theme14\Repeat.png" />
+    <Resource Include="Images\Theme14\Search.png" />
+    <Resource Include="Images\Theme14\Shuffle.png" />
+    <Resource Include="Images\Theme15\Home.png" />
+    <Resource Include="Images\Theme15\Next.png" />
+    <Resource Include="Images\Theme15\Play.png" />
+    <Resource Include="Images\Theme15\Playlist.png" />
+    <Resource Include="Images\Theme15\Previous.png" />
+    <Resource Include="Images\Theme15\Repeat.png" />
+    <Resource Include="Images\Theme15\Search.png" />
+    <Resource Include="Images\Theme15\Shuffle.png" />
+    <Resource Include="Images\Theme16\Playlist.png" />
+    <Resource Include="Images\Theme1\AdminMenuD1.png" />
+    <Resource Include="Images\Theme10\AdminMenuD10.png" />
+    <Resource Include="Images\Theme11\AdminMenuD11.png" />
+    <Resource Include="Images\Theme12\AdminMenuD12.png" />
+    <Resource Include="Images\Theme14\AdminMenuD14.png" />
+    <Resource Include="Images\Theme15\AdminMenuD15.png" />
+    <Resource Include="Images\Theme16\AdminMenuD16.png" />
+    <Resource Include="Images\Theme13\AdminMenuD13.png" />
+    <Resource Include="Images\ProgressBar.gif" />
+    <Resource Include="icon.jpg" />
+    <Resource Include="Images\Theme1\Artwork1.png" />
+    <Content Include="Images\Theme1\dp4FontViewer64.exe" />
+    <Resource Include="Images\Theme1\martintorrible21.png" />
+    <Resource Include="Images\Theme1\My Favourites.png" />
+    <Resource Include="Images\Theme1\Splash Loading Screen.png" />
+    <Resource Include="Images\Theme1\Unchecked.png" />
+    <Resource Include="Images\Theme1\SelectedFolderIcon.png" />
+    <Resource Include="Images\Theme1\UnselectedFolderIcon.png" />
+    <Resource Include="Images\Theme1\EditIcon.png" />
+    <Resource Include="Images\Theme1\Line7.png" />
+    <Resource Include="Images\Theme1\FrameMuteIcon.png" />
+    <Resource Include="Images\Theme1\MuteActiveBg.png" />
+    <Resource Include="Images\Theme1\remove.png" />
+    <Resource Include="Images\Theme1\removeBtn.png" />
+    <Resource Include="Images\Theme1\PlayBtnbig.png" />
+    <Resource Include="Images\Theme2\Design2.png" />
+    <Resource Include="Images\Theme2\Design2K.png" />
+    <Resource Include="Images\Theme2\Design2KT.png" />
+    <Resource Include="Images\Theme2\Design2M.png" />
+    <Resource Include="Images\Theme2\Design2MT.png" />
+    <Resource Include="Images\Theme2\Design2R.png" />
+    <Resource Include="Images\Theme2\Design2RT.png" />
+    <Resource Include="Images\Theme2\Design2V.png" />
+    <Resource Include="Images\Theme2\Design2VT.png" />
+    <Resource Include="Images\Theme3\Design3.png" />
+    <Resource Include="Images\Theme3\Design3K.png" />
+    <Resource Include="Images\Theme3\Design3KT.png" />
+    <Resource Include="Images\Theme3\Design3M.png" />
+    <Resource Include="Images\Theme3\Design3MT.png" />
+    <Resource Include="Images\Theme3\Design3R.png" />
+    <Resource Include="Images\Theme3\Design3RT.png" />
+    <Resource Include="Images\Theme3\Design3V.png" />
+    <Resource Include="Images\Theme3\Design3VT.png" />
+    <Resource Include="Images\Theme4\Design4.png" />
+    <Resource Include="Images\Theme4\Design4K.png" />
+    <Resource Include="Images\Theme4\Design4KT.png" />
+    <Resource Include="Images\Theme4\Design4M.png" />
+    <Resource Include="Images\Theme4\Design4MT.png" />
+    <Resource Include="Images\Theme4\Design4R.png" />
+    <Resource Include="Images\Theme4\Design4RT.png" />
+    <Resource Include="Images\Theme4\Design4V.png" />
+    <Resource Include="Images\Theme4\Design4VT.png" />
+    <Resource Include="Images\Theme5\Desgin5K.png" />
+    <Resource Include="Images\Theme5\Desgin5KT.png" />
+    <Resource Include="Images\Theme5\Desgin5M.png" />
+    <Resource Include="Images\Theme5\Desgin5MT.png" />
+    <Resource Include="Images\Theme5\Desgin5R.png" />
+    <Resource Include="Images\Theme5\Desgin5RT.png" />
+    <Resource Include="Images\Theme5\Desgin5V.png" />
+    <Resource Include="Images\Theme5\Desgin5VT.png" />
+    <Resource Include="Images\Theme5\Design5.png" />
+    <Resource Include="Images\Theme6\Design6.png" />
+    <Resource Include="Images\Theme6\Design6K.png" />
+    <Resource Include="Images\Theme6\Design6KT.png" />
+    <Resource Include="Images\Theme6\Design6M.png" />
+    <Resource Include="Images\Theme6\Design6MT.png" />
+    <Resource Include="Images\Theme6\Design6R.png" />
+    <Resource Include="Images\Theme6\Design6RT.png" />
+    <Resource Include="Images\Theme6\Design6V.png" />
+    <Resource Include="Images\Theme6\Design6VT.png" />
+    <Resource Include="Images\Theme7\Design7.png" />
+    <Resource Include="Images\Theme7\Design7K.png" />
+    <Resource Include="Images\Theme7\Design7KT.png" />
+    <Resource Include="Images\Theme7\Design7M.png" />
+    <Resource Include="Images\Theme7\Design7MT.png" />
+    <Resource Include="Images\Theme7\Design7R.png" />
+    <Resource Include="Images\Theme7\Design7RT.png" />
+    <Resource Include="Images\Theme7\Design7V.png" />
+    <Resource Include="Images\Theme7\Design7VT.png" />
+    <Resource Include="Images\Theme8\Design8.png" />
+    <Resource Include="Images\Theme8\Design8K.png" />
+    <Resource Include="Images\Theme8\Design8KT.png" />
+    <Resource Include="Images\Theme8\Design8M.png" />
+    <Resource Include="Images\Theme8\Design8MT.png" />
+    <Resource Include="Images\Theme8\Design8R.png" />
+    <Resource Include="Images\Theme8\Design8RT.png" />
+    <Resource Include="Images\Theme8\Design8V.png" />
+    <Resource Include="Images\Theme8\Design8VT.png" />
+    <Resource Include="Images\Theme9\Design9.png" />
+    <Resource Include="Images\Theme9\Design9K.png" />
+    <Resource Include="Images\Theme9\Design9KT.png" />
+    <Resource Include="Images\Theme9\Design9M.png" />
+    <Resource Include="Images\Theme9\Design9MT.png" />
+    <Resource Include="Images\Theme9\Design9R.png" />
+    <Resource Include="Images\Theme9\Design9RT.png" />
+    <Resource Include="Images\Theme9\Design9V.png" />
+    <Resource Include="Images\Theme9\Design9VT.png" />
+    <Resource Include="Images\Theme1\Next10Btn.png" />
+    <Resource Include="Images\Theme2\Home.png" />
+    <Resource Include="Images\Theme2\Next.png" />
+    <Resource Include="Images\Theme2\Play.png" />
+    <Resource Include="Images\Theme2\Playlist.png" />
+    <Resource Include="Images\Theme2\Previous.png" />
+    <Resource Include="Images\Theme2\Repeat.png" />
+    <Resource Include="Images\Theme2\Search.png" />
+    <Resource Include="Images\Theme2\Shuffle.png" />
+    <Resource Include="Images\Theme3\Home.png" />
+    <Resource Include="Images\Theme3\Next.png" />
+    <Resource Include="Images\Theme3\Play.png" />
+    <Resource Include="Images\Theme3\Playlist.png" />
+    <Resource Include="Images\Theme3\Previous.png" />
+    <Resource Include="Images\Theme3\Repeat.png" />
+    <Resource Include="Images\Theme3\Search.png" />
+    <Resource Include="Images\Theme3\Shuffle.png" />
+    <Resource Include="Images\Theme4\Home.png" />
+    <Resource Include="Images\Theme4\Next.png" />
+    <Resource Include="Images\Theme4\Play.png" />
+    <Resource Include="Images\Theme4\Playlist.png" />
+    <Resource Include="Images\Theme4\Previous.png" />
+    <Resource Include="Images\Theme4\Repeat.png" />
+    <Resource Include="Images\Theme4\Search.png" />
+    <Resource Include="Images\Theme4\Shuffle.png" />
+    <Resource Include="Images\Theme5\Home.png" />
+    <Resource Include="Images\Theme5\Next.png" />
+    <Resource Include="Images\Theme5\Play.png" />
+    <Resource Include="Images\Theme5\Playlist.png" />
+    <Resource Include="Images\Theme5\Previous.png" />
+    <Resource Include="Images\Theme5\Repeat.png" />
+    <Resource Include="Images\Theme5\Search.png" />
+    <Resource Include="Images\Theme5\Shuffle.png" />
+    <Resource Include="Images\Theme6\Home.png" />
+    <Resource Include="Images\Theme6\Next.png" />
+    <Resource Include="Images\Theme6\Play.png" />
+    <Resource Include="Images\Theme6\Playlist.png" />
+    <Resource Include="Images\Theme6\Previous.png" />
+    <Resource Include="Images\Theme6\Repeat.png" />
+    <Resource Include="Images\Theme6\Search.png" />
+    <Resource Include="Images\Theme6\Shuffle.png" />
+    <Resource Include="Images\Theme7\Home.png" />
+    <Resource Include="Images\Theme7\Next.png" />
+    <Resource Include="Images\Theme7\Play.png" />
+    <Resource Include="Images\Theme7\Playlist.png" />
+    <Resource Include="Images\Theme7\Previous.png" />
+    <Resource Include="Images\Theme7\Repeat.png" />
+    <Resource Include="Images\Theme7\Search.png" />
+    <Resource Include="Images\Theme7\Shuffle.png" />
+    <Resource Include="Images\Theme8\Home.png" />
+    <Resource Include="Images\Theme8\Next.png" />
+    <Resource Include="Images\Theme8\Play.png" />
+    <Resource Include="Images\Theme8\Playlist.png" />
+    <Resource Include="Images\Theme8\Previous.png" />
+    <Resource Include="Images\Theme8\Repeat.png" />
+    <Resource Include="Images\Theme8\Search.png" />
+    <Resource Include="Images\Theme8\Shuffle.png" />
+    <Resource Include="Images\Theme9\Home.png" />
+    <Resource Include="Images\Theme9\Next.png" />
+    <Resource Include="Images\Theme9\Play.png" />
+    <Resource Include="Images\Theme9\Playlist.png" />
+    <Resource Include="Images\Theme9\Previous.png" />
+    <Resource Include="Images\Theme9\Repeat.png" />
+    <Resource Include="Images\Theme9\Search.png" />
+    <Resource Include="Images\Theme9\Shuffle.png" />
+    <Resource Include="Images\Theme2\AdminMenuD2.png" />
+    <Resource Include="Images\Theme3\AdminMenuD3.png" />
+    <Resource Include="Images\Theme4\AdminMenuD4.png" />
+    <Resource Include="Images\Theme5\AdminMenuD5.png" />
+    <Resource Include="Images\Theme6\AdminMenuD6.png" />
+    <Resource Include="Images\Theme7\AdminMenuD7.png" />
+    <Resource Include="Images\Theme8\AdminMenuD8.png" />
+    <Resource Include="Images\Theme9\AdminMenuD9.png" />
+    <Resource Include="Images\Theme1\trackFav.png" />
+    <Resource Include="Images\Theme1\trackUnfav.png" />
+    <Resource Include="Images\Theme1\favwithback.png" />
+    <Content Include="JBDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JBDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>JBDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="LibraryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LibraryModel.Context.cs</LastGenOutput>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="LibraryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Pages\AlphaBet_Combined.png" />
+    <Resource Include="Pages\AlphaBet_Top.png" />
+    <Resource Include="Pages\AlphaBet_Bottom.png" />
+    <Resource Include="Notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\FileManager\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\VideoLAN.LibVLC.Windows.3.0.12\build\VideoLAN.LibVLC.Windows.targets" Condition="Exists('packages\VideoLAN.LibVLC.Windows.3.0.12\build\VideoLAN.LibVLC.Windows.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\VideoLAN.LibVLC.Windows.3.0.12\build\VideoLAN.LibVLC.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VideoLAN.LibVLC.Windows.3.0.12\build\VideoLAN.LibVLC.Windows.targets'))" />
+  </Target>
+</Project>

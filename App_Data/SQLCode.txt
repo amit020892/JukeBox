@@ -1,0 +1,195 @@
+﻿CREATE TABLE [dbo].[AlbumLibrary] (
+    [AlbumId]              INT           IDENTITY (1, 1) NOT NULL,
+    [AlbumName]            VARCHAR (150) NOT NULL,
+    [CoverArt]             IMAGE         NULL,
+    [MusicBrainzId]        VARCHAR (25)  NULL,
+    [Year]                 INT           NULL,
+    [NumTracks]            INT           NULL,
+    [isVerified]           BIT           DEFAULT ((0)) NOT NULL,
+    [hasMusicBrainzUpdate] BIT           DEFAULT ((0)) NOT NULL,
+    [iTunesId]             VARCHAR (25)  NULL,
+    [hasiTunesUpdate]      BIT           DEFAULT ((0)) NOT NULL,
+    [isHidden]             BIT           DEFAULT ((0)) NOT NULL,
+    [isFavourite]          BIT           DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([AlbumId] ASC)
+);
+
+CREATE TABLE [dbo].[AppSettings] (
+    [Id]      INT           IDENTITY (1, 1) NOT NULL,
+    [Type]    VARCHAR (20)  NOT NULL,
+    [Subtype] VARCHAR (20)  DEFAULT ('') NOT NULL,
+    [Value]   VARCHAR (250) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Artists] (
+    [Id]              INT           IDENTITY (1, 1) NOT NULL,
+    [ArtistName]      VARCHAR (150) NOT NULL,
+    [iTunesId]        VARCHAR (25)  NULL,
+    [isVerified]      BIT           DEFAULT ((0)) NOT NULL,
+    [hasiTunesUpdate] BIT           DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[iTunes_AlbumDetails] (
+    [AlbumId]           INT           NOT NULL,
+    [CollectionId]      NCHAR (10)    NOT NULL,
+    [CollectionName]    VARCHAR (150) NOT NULL,
+    [CollectionViewUrl] VARCHAR (250) NOT NULL,
+    [ArtistId]          NCHAR (10)    NOT NULL,
+    [ArtistName]        VARCHAR (150) NOT NULL,
+    [ArtistViewUrl]     VARCHAR (250) NOT NULL,
+    [ArtworkUrl100]     VARCHAR (250) NOT NULL,
+    [PrimaryGenreName]  VARCHAR (50)  NOT NULL,
+    [Country]           VARCHAR (10)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([AlbumId] ASC)
+);
+
+CREATE TABLE [dbo].[SongLibrary] (
+    [SongId]   INT           IDENTITY (1, 1) NOT NULL,
+    [SongName] VARCHAR (150) NOT NULL,
+    [Genre]    VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([SongId] ASC)
+);
+
+CREATE TABLE [dbo].[TrackLibrary] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [FilePath]  NVARCHAR (500) NOT NULL,
+    [FileName]  NVARCHAR (250) NOT NULL,
+    [Type]      VARCHAR (50)   NOT NULL,
+    [Extention] VARCHAR (6)    NULL,
+    CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[PlayListDetails] (
+    [Id]   INT           IDENTITY (1, 1) NOT NULL,
+    [Name] VARCHAR (150) NOT NULL,
+    [Type] INT           NOT NULL,
+    [isVideo] BIT       NOT NULL,
+    [isMusic] BIT       NOT NULL,
+    [isKaraoke] BIT       NOT NULL,
+    [isRadio] BIT       NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+CREATE TABLE [dbo].[Playlists] (
+    [Id]             INT IDENTITY (1, 1) NOT NULL,
+    [TrackId]        INT NOT NULL,
+    [PlaylistId]     INT NOT NULL,
+    [SequenceNumber] INT NOT NULL,
+    CONSTRAINT [PK_Playlists] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Playlists_TrackFiles] FOREIGN KEY ([TrackId]) REFERENCES [dbo].[TrackLibrary] ([Id]),
+    CONSTRAINT [FK_Playlists_PlaylistDetails] FOREIGN KEY ([PlaylistId]) REFERENCES [dbo].[PlayListDetails] ([Id])
+);
+
+CREATE TABLE [dbo].[Map_Album_Songs] (
+    [AlbumId] INT NOT NULL,
+    [SongId]  INT NOT NULL,
+    CONSTRAINT [PK_Map_Album_Songs] PRIMARY KEY CLUSTERED ([AlbumId] ASC, [SongId] ASC),
+    CONSTRAINT [FK_Map_Album_S] FOREIGN KEY ([AlbumId]) REFERENCES [dbo].[AlbumLibrary] ([AlbumId]),
+    CONSTRAINT [FK_Map_Songs_A] FOREIGN KEY ([SongId]) REFERENCES [dbo].[SongLibrary] ([SongId])
+);
+
+CREATE TABLE [dbo].[Map_Artist_Songs] (
+    [ArtistId] INT NOT NULL,
+    [SongId]   INT NOT NULL,
+    CONSTRAINT [PK_Map_Artist_Songs] PRIMARY KEY CLUSTERED ([ArtistId] ASC, [SongId] ASC),
+    CONSTRAINT [FK_Map_Artist_S] FOREIGN KEY ([ArtistId]) REFERENCES [dbo].[Artists] ([Id]),
+    CONSTRAINT [FK_Map_Songs_Art] FOREIGN KEY ([SongId]) REFERENCES [dbo].[SongLibrary] ([SongId])
+);
+
+CREATE TABLE [dbo].[Map_Files_Songs] (
+    [FileId] INT NOT NULL,
+    [SongId] INT NOT NULL,
+    CONSTRAINT [PK_Map_Files_Songs] PRIMARY KEY CLUSTERED ([FileId] ASC, [SongId] ASC),
+    CONSTRAINT [FK_Map_Files] FOREIGN KEY ([FileId]) REFERENCES [dbo].[TrackLibrary] ([Id]),
+    CONSTRAINT [FK_Map_Songs] FOREIGN KEY ([SongId]) REFERENCES [dbo].[SongLibrary] ([SongId])
+);
+
+CREATE TABLE [dbo].[LibraryView] (
+    [TrackId] int  NOT NULL,
+    [Type] varchar(50)  NOT NULL,
+    [SongId] int  NULL,
+    [SongName] varchar(150)  NULL,
+    [SongIndex] nvarchar(max)  NULL,
+    [Genre] varchar(25)  NULL,
+    [AlbumId] int  NULL,
+    [Year] varchar(14)  NOT NULL,
+    [Artists] nvarchar(max)  NULL
+);
+INSERT INTO PlayListDetails VALUES('SystemBackground',0,0,0,0,0);
+INSERT INTO PlayListDetails VALUES('NowPlaying',0,0,0,0,0);
+INSERT INTO PlayListDetails VALUES('NewImporter',0,0,0,0,0);
+INSERT INTO PlayListDetails VALUES('PlaylistBuffer',0,0,0,0,0);
+INSERT INTO PlayListDetails VALUES('AutoUpdateTodoList',0,0,0,0,0);
+
+INSERT INTO TrackLibrary VALUES('http://stream.hive365.co.uk:8088/live','hive365','Radio',NULL);
+
+INSERT INTO SongLibrary VALUES('Hive 365',NULL);
+
+CREATE VIEW [dbo].[LibraryView]
+	AS SELECT t.Id as [TrackId], t.Type, s.SongId, s.SongName, (CASE WHEN [Artists] IS NULL THEN UPPER(LEFT(s.SongName,1)) ELSE UPPER(LEFT([Artists],1)) END) As SongIndex ,s.Genre, a.AlbumId, Concat(Floor(a.Year / 10) * 10,'''s') as Year, art.Artists
+	FROM TrackLibrary as t left join Map_Files_Songs as map1 on t.Id = map1.FileId left join SongLibrary as s on map1.SongId = s.SongId
+	
+	left join 
+	(select map2.SongId, AlbumLibrary.* from Map_Album_Songs as map2 inner join AlbumLibrary on map2.AlbumId = AlbumLibrary.AlbumId where AlbumLibrary.isHidden = 'FALSE') as a
+	on s.SongId = a.SongId
+	
+	left join
+	(SELECT SS.SongId,
+STUFF((Select ', ' + a.ArtistName
+From Map_Artist_Songs map inner join  Artists a
+on map.ArtistId = a.Id
+where map.SongId = ss.SongId
+for xml path('')),1,2,'') [Artists]
+from SongLibrary as SS
+Group by ss.SongId) as art
+on s.SongId = art.SongId
+
+	where t.Type in ('Video','Music','Karaoke')
+
+
+
+
+
+Create Procedure BuildLibraryView
+As Begin 
+DROP table IF EXISTS [dbo].[LibraryView];
+SELECT t.Id as [TrackId], t.Type, s.SongId, s.SongName, (CASE WHEN [Artists] IS NULL THEN UPPER(LEFT(s.SongName,1)) ELSE UPPER(LEFT([Artists],1)) END) As SongIndex ,s.Genre, a.AlbumId, Concat(Floor(a.Year / 10) * 10,'''s') as Year, art.Artists
+	into [dbo].[LibraryView]
+	FROM TrackLibrary as t left join Map_Files_Songs as map1 on t.Id = map1.FileId left join SongLibrary as s on map1.SongId = s.SongId
+	
+	left join 
+	(select map2.SongId, AlbumLibrary.* from Map_Album_Songs as map2 inner join AlbumLibrary on map2.AlbumId = AlbumLibrary.AlbumId where AlbumLibrary.isHidden = 'FALSE') as a
+	on s.SongId = a.SongId
+	
+	left join
+	(SELECT SS.SongId,
+STUFF((Select ', ' + a.ArtistName
+From Map_Artist_Songs map inner join  Artists a
+on map.ArtistId = a.Id
+where map.SongId = ss.SongId
+for xml path('')),1,2,'') [Artists]
+from SongLibrary as SS
+Group by ss.SongId) as art
+on s.SongId = art.SongId
+
+	where t.Type in ('Video','Music','Karaoke');
+	End;
+
+
+CREATE PROCEDURE [dbo].[sp_Make_Favourite_Unfavourite]
+	@AlbumID int = 0,
+	@IsFavourite int
+AS
+	Update AlbumLibrary
+	SET isFavourite=@IsFavourite
+	WHERE AlbumId=@AlbumID
+RETURN 0
+
+CREATE TABLE [dbo].[PlaylistNG]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [TrackID] INT NOT NULL, 
+    [PlaylistTypeID] INT NOT NULL, 
+    [IsPlaying] BIT NOT NULL DEFAULT 0
+)

@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.SearchPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Width="550" Height="460">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="4" Background="#000" Opacity="0.8"/>
+        <Grid Background="#000">
+            <Label Margin="0,0,0,0" Content="Search" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="20" Foreground="#fff"/>
+            <Image x:Name="UnfavIcon" Source="/JukeBoxSolutions;component/Images/Theme1/Close.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0" MouseDown="ClosePopup"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Background="#fff" CornerRadius="6" Opacity="0.3">
+                <Grid/>
+            </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton x:Name="AllBtn" Style="{DynamicResource AllCornerToggleButtonStyle}" Background="Transparent" Foreground="#fff" FontWeight="Bold" Content="All" IsChecked="True" Click="AllBtn_Click"/>
+                <ToggleButton x:Name="ArtistBtn" Grid.Column="1" Style="{DynamicResource AllCornerToggleButtonStyle}" Background="Transparent" Foreground="#fff" FontWeight="Bold" Content="ARTIST" Click="ArtistBtn_Click"/>
+                <ToggleButton x:Name="AlbumBtn" Grid.Column="2" Style="{DynamicResource AllCornerToggleButtonStyle}" Background="Transparent" Foreground="#fff" FontWeight="Bold" Content="ALBUM" Click="AlbumBtn_Click"/>
+                <ToggleButton x:Name="SongBtn" Grid.Column="3" Style="{DynamicResource AllCornerToggleButtonStyle}" Background="Transparent" Foreground="#fff" FontWeight="Bold" Content="SONG" Click="SongBtn_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Background="#fff" CornerRadius="6" Opacity="0.3">
+                <Grid/>
+            </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="searchText" Foreground="#225663" Height="40" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center" Padding="10,0">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6,0,0,6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button Grid.Column="1" Content="Search" Style="{DynamicResource RightRoundedSearchButtonStyle}" FontWeight="Bold" FontSize="14" Height="40" Width="120" Padding="0" HorizontalAlignment="Stretch" Click="BtnSearch_Click"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="AlphaKeyboard" Grid.Row="3" Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="KeyboardRowStack1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="q" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="w" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="e" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="r" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="t" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="y" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="u" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="i" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="o" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="p" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+            </StackPanel>
+            <StackPanel  x:Name="KeyboardRowStack2" Orientation="Horizontal" Grid.Row="1" Margin="30,10,30,0">
+                <Button Content="a" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="s" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="d" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="f" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="g" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="h" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="j" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="k" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="l" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10,10,10,0">
+                    <Button x:Name="UpperCaseBtn" Style="{DynamicResource KeyboardButtonStyle}" Width="50" Click="upperspaceBtn_click">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/uppercase.png" Width="20" Height="20"/> 
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,10,10,0">
+                    <Button Style="{DynamicResource KeyboardButtonStyle}" Width="50" Click="backSpaceBtn_click">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/backspace.png" Width="20" Height="20"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel  x:Name="KeyboardRowStack3" Grid.Column="1" Orientation="Horizontal" Grid.Row="1" Margin="-10,10,0,0" HorizontalAlignment="Center">
+                    <Button Content="z" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="x" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="c" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="v" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="b" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="n" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="m" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10,10,10,0">
+                    <Button Content="123" Style="{DynamicResource KeyboardButtonStyle}" Width="75" Click="numberBtn_click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="-35,11,10,0">
+                    <Button Content="clear" Style="{DynamicResource KeyboardButtonStyle}" Width="80" Click="clearBtn_click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="-20,11,0,0">
+                    <Button Content="space" Style="{DynamicResource KeyboardButtonStyle}" Width="320" Click="spaceBtn_click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid x:Name="NumKeyboard" Grid.Row="3" Margin="10,0" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="NumKeyboardRowStack1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="1" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="2" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="3" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="4" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="5" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="6" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="7" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="8" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="9" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="0" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+            </StackPanel>
+            <StackPanel  x:Name="NumKeyboardRowStack2" Orientation="Horizontal" Grid.Row="1" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <Button Content="@" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="#" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="$" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="_" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="&amp;" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="-" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="+" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="(" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content=")" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                <Button Content="/" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10,10,10,0">
+                    <!--<Button x:Name="UpperCaseBtn" Style="{DynamicResource KeyboardButtonStyle}" Width="50" Click="upperspaceBtn_click">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/uppercase.png" Width="20" Height="20"/> 
+                    </Button>-->
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,10,10,0">
+                    <Button Style="{DynamicResource KeyboardButtonStyle}" Width="50" Click="backSpaceBtn_click">
+                        <Image Source="/JukeBoxSolutions;component/Images/Theme1/backspace.png" Width="20" Height="20"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel  x:Name="NumKeyboardRowStack3" Grid.Column="1" Orientation="Horizontal" Grid.Row="1" Margin="30,10,0,0" HorizontalAlignment="Center">
+                    <Button Content="*" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="&quot;" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="&apos;" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content=":" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content=";" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="!" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="?" Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10,10,0,0">
+                    <Button Content="ABC" Style="{DynamicResource KeyboardButtonStyle}" Width="80" Click="AlphaBtn_click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="-35,11,10,0">
+                    <Button Content="clear" Style="{DynamicResource KeyboardButtonStyle}" Width="80" Click="clearBtn_click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="-23,11,0,0">
+                    <Button Content="," Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                    <Button Content="space" Style="{DynamicResource KeyboardButtonStyle}" Width="230" Click="spaceBtn_click"/>
+                    <Button Content="." Style="{DynamicResource KeyboardButtonStyle}" Click="txtBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.LibraryPopupItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Label x:Name="lblTrackName" Content="Label" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddToPlaylist" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Click="btnAddToPlaylist_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/JukeBoxSolutions;component/Pages/BetaBet_Combined.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnPlay" Content=">" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="btnPlay_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/JukeBoxSolutions;component/Pages/BetaBet_Combined.png"/>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</UserControl>

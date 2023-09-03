@@ -1,0 +1,3 @@
+            lblLoadingPleaseWaitAction.Dispatcher.Invoke(() => { lblLoadingPleaseWaitAction.Content = "Reading files from drive"; });
+
+            lblLoadingPleaseWaitAction.Dispatcher.Invoke(() => { lblLoadingPleaseWaitAction.Content = "Importing files to library"; });

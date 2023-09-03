@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="JukeBoxSolutions.Controls.StackYearControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid MaxWidth="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Border x:Name="UnselectedYearLabelContainer" Background="#353A3C" CornerRadius="20" Margin="10,5">
+            <Grid>
+                <Image x:Name="AddYearIcon" Source="/JukeBoxSolutions;component/Images/Theme1/AddYear.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="24" Height="24" Margin="10,0,10,0" MouseDown="SelectYear"/>
+                <Label x:Name="UnselectedYearLabel" Content="Year" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="#fff"/>
+            </Grid>
+        </Border>
+        <Border x:Name="SelectedYearLabelContainer" Background="#fff" CornerRadius="20" Margin="10,5" Visibility="Collapsed">
+            <Grid>
+                <Image x:Name="RemoveYearIcon" Source="/JukeBoxSolutions;component/Images/Theme1/RemoveYear.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="24" Height="24" Margin="10,0,10,0" MouseDown="RemoveYear"/>
+                <Label x:Name="SelectedYearLabel" Content="Year" FontFamily="{StaticResource Bold}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="#000"/>
+            </Grid>
+        </Border>  
+    </Grid>
+</UserControl>

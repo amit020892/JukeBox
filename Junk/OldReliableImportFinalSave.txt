@@ -1,0 +1,49 @@
+ // check if has albums
+                    //if (!string.IsNullOrEmpty(searchAlbum))
+                    //{
+                    //    AlbumLibrary al = new AlbumLibrary();
+                    //    if (db.AlbumLibraries.Any(q2 => q2.AlbumName.Equals(searchAlbum, StringComparison.OrdinalIgnoreCase)))
+                    //    {
+                    //        al = db.AlbumLibraries.Where(q2 => q2.AlbumName.Equals(searchAlbum, StringComparison.OrdinalIgnoreCase)).First();
+                    //    }
+                    //    else
+                    //    {
+                    //        al.AlbumName = searchAlbum;
+                    //        //if(!string.IsNullOrEmpty(mf.Id3Tag.Genre.Value))
+                    //        if (Id3Tag != null)
+                    //        {
+                    //            if (Id3Tag.Year != null) al.Year = Id3Tag.Year.Value ?? null;
+                    //            if (Id3Tag.Pictures.Count() > 0) al.CoverArt = Id3Tag.Pictures.First().PictureData;
+                    //        }
+                    //    }
+                    //    sl.AlbumLibraries.Add(al);
+                    //}
+
+
+                    //if (searchArtist.Distinct().Count() > 0)
+                    //{
+                    //    foreach (var art in searchArtist.Distinct())
+                    //    {
+                    //        Artist a = new Artist();
+
+                    //        if (db.Artists.Any(q1 => q1.ArtistName.Equals(art, StringComparison.OrdinalIgnoreCase)))
+                    //        {
+                    //            a = db.Artists.Where(q1 => q1.ArtistName.Equals(art, StringComparison.OrdinalIgnoreCase)).First();
+                    //        }
+                    //        else
+                    //        {
+                    //            a.ArtistName = art;
+                    //        }
+
+                    //        sl.Artists.Add(a);
+                    //    }
+                    //}
+
+
+                    //a.SaveFileToLibrary(db, playlistname);
+                    //Global.ImportAnalytics.AddBreadcrumb(a.FilePath, "Saved RAW to DB");
+                    //if (!isOnline)
+                    //    Global.ImportAnalytics.AddBreadcrumb(a.FilePath, "iTunes OFFLINE");
+                    //// save to autoupdate todo list
+                    //if (a.NotBeenUpdated)
+                    //    autoupdate.Add(a.BaseDBTrackLibrary);

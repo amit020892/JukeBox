@@ -1,0 +1,52 @@
+﻿<Page x:Class="JukeBoxSolutions.Pages.ImportAnalytics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JukeBoxSolutions.Pages"
+             xmlns:Style1="clr-namespace:JukeBoxSolutions.Controls.Style1" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ImportAnalytics">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1820" Height="950" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Import Analytics" FontFamily="{StaticResource Bold}" FontSize="40" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btnResumeItunesUpdate" Content="Resume Server Update" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Style="{DynamicResource ButtonStyleAlpha}" Click="btnResumeItunesUpdate_Click"/>
+        <Button x:Name="btnITunesStatus" Content="Server Status" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsEnabled="True" Style="{DynamicResource ButtonStyleAlpha}" Click="btnITunesStatus_Click" FontSize="18" />
+        <Grid x:Name="TopControls" Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <!--<Button x:Name="btnAlbumTree" Content="Album Tree" Margin="5" Click="btnAlbumTree_Click"/>-->
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="StatsControls" Grid.Row="1">
+            <Style1:BGRectangleStyle1 HorizontalAlignment="Stretch" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Margin="10,0,10,0"/>
+            <!--<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Black" RadiusX="20" RadiusY="20" />-->
+            <StackPanel HorizontalAlignment="Center" >
+                <StackPanel x:Name="stackButtons" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+                    <Button x:Name="btnAlbumBuffer" Content="Album Buffer" Click="btnAlbumBuffer_Click"/>
+                </StackPanel>
+                <StackPanel x:Name="stackSummary" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" />
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="StatsResults" Grid.Row="1" Grid.Column="1">
+            <Style1:BGRectangleStyle1 HorizontalAlignment="Stretch" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Margin="10,0,10,0"/>
+            <Label Content="Press Reload to load import stats" FontFamily="{StaticResource Bold}" FontSize="40" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.8" Grid.Row="1"/>
+
+            <!--<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Black" RadiusX="20" RadiusY="20" Margin="5" />-->
+            <StackPanel x:Name="stackResults" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="50,0,0,0">
+            </StackPanel>
+        </Grid>
+        <Button x:Name="btnReload" Content="Reload" HorizontalAlignment="Center" Click="btnReload_Click" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Style="{DynamicResource ButtonStyleAlpha}" Focusable="False"/>
+        <Button x:Name="btnLoadAnalytics" Content="DB Status" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Style="{DynamicResource ButtonStyleAlpha}" Focusable="False" Margin="-330,0,0,0" Click="btnLoadAnalytics_Click"/>
+    </Grid>
+</Page>

@@ -1,0 +1,93 @@
+﻿CREATE TABLE [dbo].[TrackLibrary]
+(
+	[Id] INT NOT NULL IDENTITY , 
+    [FilePath] VARCHAR(300) NOT NULL, 
+    [FileName] VARCHAR(100) NOT NULL, 
+    [Album] VARCHAR(100) NULL, 
+    [TrackName] VARCHAR(100) NOT NULL, 
+    CONSTRAINT [PK_Table] PRIMARY KEY ([Id]) 
+)
+
+
+CREATE TABLE [dbo].[Artists]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ArtistName] VARCHAR(150) NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Map_Track_Artists]
+(
+	[TrackId] INT NOT NULL, 
+    [ArtistId] INT NOT NULL, 
+    CONSTRAINT [FK_Map_Track_Artists_TrackLibrary] FOREIGN KEY ([TrackId]) REFERENCES [TrackLibrary]([Id]),
+    CONSTRAINT [FK_Map_Track_Artists_Artists] FOREIGN KEY ([ArtistId]) REFERENCES [Artists]([Id])
+)
+
+CREATE TABLE [dbo].[AppSettings]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Type] VARCHAR(20) NOT NULL, 
+    [Subtype] VARCHAR(20) NOT NULL DEFAULT '' , 
+    [Value] VARCHAR(250) NOT NULL
+)
+
+--------------------------------------------
+
+CREATE TABLE [dbo].[TrackLibrary] (
+    [Id]       INT           IDENTITY (1, 1) NOT NULL,
+    [FilePath] VARCHAR (300) NOT NULL,
+    [FileName] VARCHAR (100) NOT NULL,
+    [Type]     VARCHAR (50)  NOT NULL,
+    CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[SongLibrary] (
+    [SongId]   INT           IDENTITY (1, 1) NOT NULL,
+    [SongName] VARCHAR (150) NOT NULL,
+    PRIMARY KEY CLUSTERED ([SongId] ASC)
+);
+
+CREATE TABLE [dbo].[Artists] (
+    [Id]         INT           IDENTITY (1, 1) NOT NULL,
+    [ArtistName] VARCHAR (150) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[AlbumLibrary] (
+    [AlbumId]   INT           IDENTITY (1, 1) NOT NULL,
+    [AlbumName] VARCHAR (150) NOT NULL,
+    PRIMARY KEY CLUSTERED ([AlbumId] ASC)
+);
+
+
+
+
+--------------------------------------------
+
+CREATE TABLE [dbo].[Map_Files_Songs]
+(
+	[FileId] INT NOT NULL, 
+	[SongId] INT NOT NULL, 
+    CONSTRAINT [FK_Map_Files] FOREIGN KEY ([FileId]) REFERENCES [TrackLibrary]([Id]),
+    CONSTRAINT [FK_Map_Songs] FOREIGN KEY ([SongId]) REFERENCES [SongLibrary]([SongId]), 
+    CONSTRAINT [PK_Map_Files_Songs] PRIMARY KEY ([FileId], [SongId])
+)
+
+CREATE TABLE [dbo].[Map_Album_Songs]
+(
+	[AlbumId] INT NOT NULL, 
+	[SongId] INT NOT NULL, 
+    CONSTRAINT [FK_Map_Album_S] FOREIGN KEY ([AlbumId]) REFERENCES [AlbumLibrary]([AlbumId]),
+    CONSTRAINT [FK_Map_Songs_A] FOREIGN KEY ([SongId]) REFERENCES [SongLibrary]([SongId]), 
+    CONSTRAINT [PK_Map_Album_Songs] PRIMARY KEY ([AlbumId], [SongId])
+)
+
+CREATE TABLE [dbo].[Map_Artist_Songs]
+(
+	[ArtistId] INT NOT NULL, 
+	[SongId] INT NOT NULL, 
+    CONSTRAINT [FK_Map_Artist_S] FOREIGN KEY ([ArtistId]) REFERENCES [Artists]([Id]),
+    CONSTRAINT [FK_Map_Songs_Art] FOREIGN KEY ([SongId]) REFERENCES [SongLibrary]([SongId]), 
+    CONSTRAINT [PK_Map_Artist_Songs] PRIMARY KEY ([ArtistId], [SongId]) 
+)

@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="JukeBoxSolutions.RetroLibraryButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JukeBoxSolutions.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="81" d:DesignWidth="40">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="40">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/JukeBoxSolutions;component/Pages/AlphaBet_Bottom.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="{Binding Path=Content}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="81" BorderBrush="{x:Null}" FontFamily="SimSun" FontSize="36" FontWeight="Bold">
+            <Button.Background>
+                <ImageBrush ImageSource="/JukeBoxSolutions;component/Pages/AlphaBet_Top.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</UserControl>
